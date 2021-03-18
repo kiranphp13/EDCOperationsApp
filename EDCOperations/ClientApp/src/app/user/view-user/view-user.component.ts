@@ -6,11 +6,11 @@ import { FormGroup, ReactiveFormsModule, FormBuilder, Validators } from '@angula
 import { ModalService } from 'src/app/_modal';
 
 @Component({
-  selector: 'app-edit-user',
-  templateUrl: './edit-user.component.html',
-  styleUrls: ['./edit-user.component.css']
+  selector: 'app-view-user',
+  templateUrl: './view-user.component.html',
+  styleUrls: ['./view-user.component.css']
 })
-export class EditUserComponent implements OnInit {
+export class ViewUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;

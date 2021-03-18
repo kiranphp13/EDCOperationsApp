@@ -1,3 +1,7 @@
+
+
+
+
 <header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background-color: #1b6ec2 !important">
     <div class="container" >
@@ -34,25 +38,49 @@
           <li class="nav-item" *ngIf="isAdmin || isAuthorized">
             <a class="nav-link text-dark" [routerLink]="['dashboard']">Dashboard</a>
           </li>
-          <li class="nav-item" *ngIf="isAdmin">
-            <a class="nav-link text-dark" [routerLink]="['listuser']">Users (Classic)</a>
-          </li>
+          <!--<li class="nav-item" *ngIf="isAdmin">
+    <a class="nav-link text-dark" [routerLink]="['listuser']">Users (Classic)</a>
+  </li>-->
           <li class="nav-item" *ngIf="isAdmin">
             <a class="nav-link text-dark" [routerLink]="['aggriduser']">Users (ag Grid)</a>
-          </li> 
-          <li class="nav-item" *ngIf="isAdmin || isAuthorized">
-            <a class="nav-link text-dark" [routerLink]="['profile']">Profile</a>
           </li>
+          <!--li class="nav-item" *ngIf="isAdmin">
+    <a class="nav-link text-dark" [routerLink]="['aduser']">Users (ad Grid)</a>
+  </li>
+  <li class="nav-item" *ngIf="isAdmin">
+    <a class="nav-link text-dark" [routerLink]="['ngxuser']">Users (ngx Grid)</a>
+  </li>-->
+          <!--<li class="nav-item" *ngIf="isAdmin || isAuthorized">
+    <a class="nav-link text-dark" [routerLink]="['profile']">Profile</a>
+  </li>-->
           <!-- Anonymous only -->
           <!--<li class="nav-item" *ngIf="!isAuthorized">
     <a class="nav-link text-dark" [routerLink]="['login']">Login</a>
   </li>-->
           <!-- Authorized only -->
-          <li class="nav-item" *ngIf="isAuthorized">
-            <a class="nav-link text-dark" (click)="logout()">Logout</a>
+          <!--<li class="nav-item" *ngIf="isAuthorized">
+    <a class="nav-link text-dark" (click)="logout()">Logout</a>
+  </li>-->
+          <!--<li class="nav-item text-dark" *ngIf="isAuthorized"> <a class="nav-link"> Hi {{username}}!!</a> </li>-->
+          <!--<li class="nav-item dropdown" *ngIf="isAuthorized">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              Hi {{username}}!!
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a lass="dropdown-item nav-link text-dark" [routerLink]="['profile']">Profile</a>
+              <a lass="dropdown-item nav-link text-dark" (click)="logout()">Logout</a>
+            </div>
+          </li>-->
+          <li class="nav-item dropdown" *ngIf="isAuthorized">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Hi {{username}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
           </li>
-          <li class="nav-item text-dark" *ngIf="isAuthorized"> <a class="nav-link"> Hi {{username}}!!</a> </li>
-
         </ul>
       </div>
     </div>

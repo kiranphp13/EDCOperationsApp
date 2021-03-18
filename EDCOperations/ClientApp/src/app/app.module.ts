@@ -25,9 +25,13 @@ import { EditUserComponent } from './user/edit-user/edit-user.component';
 import { AggridUserComponent } from './user/aggrid-user/aggrid-user.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { ModalModule } from './_modal';
-
-
-
+import { AdUserComponent } from './user/ad-user/ad-user.component';
+import { DataTablesModule } from "angular-datatables";
+import { NgxUserComponent } from './ngx-user/ngx-user.component';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { ButtonRendererComponent } from './renderer/button-renderer.component';
+import { BtnCellRenderer } from './button-cell-renderer.component';
+import { ViewUserComponent } from './user/view-user/view-user.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +61,14 @@ import { ModalModule } from './_modal';
  
     EditUserComponent,
  
-    AggridUserComponent 
+    AggridUserComponent,
+
+    AdUserComponent,
+
+    NgxUserComponent,
+    ButtonRendererComponent,
+    BtnCellRenderer,
+    ViewUserComponent
  
      
   ],
@@ -65,8 +76,8 @@ import { ModalModule } from './_modal';
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
     FormsModule, ReactiveFormsModule,
-    AgGridModule.withComponents([]),
-    ModalModule,
+    AgGridModule.withComponents([BtnCellRenderer]),
+    ModalModule, DataTablesModule, NgxDatatableModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
@@ -81,8 +92,10 @@ import { ModalModule } from './_modal';
       { path: 'listuser', component: ListUserComponent },
       { path: 'adduser', component: AddUserComponent },
       { path: 'edituser', component: EditUserComponent },
-      { path: 'aggriduser', component: AggridUserComponent }
-     
+      { path: 'aggriduser', component: AggridUserComponent },
+      { path: 'aduser', component: AdUserComponent },
+      { path: 'ngxuser', component: NgxUserComponent },
+      { path: 'viewuser', component: ViewUserComponent },
     ])
   ],
   providers: [AuthService],

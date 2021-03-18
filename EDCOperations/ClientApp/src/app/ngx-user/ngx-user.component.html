@@ -1,0 +1,25 @@
+<div class="col-md-12 user-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>User Details</h2>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+    <button class="btn btn-block btn-success" style="width:100px" (click)="addUser()"> Add User</button>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <input type="text"
+             style="padding:8px;margin:15px auto;width:30%;"
+             placeholder="Type to filter the name column..."
+             (keyup)="updateFilter($event)" />
+      <ngx-datatable [rows]="users" [columns]="columns" class="material" [headerHeight]="50"
+                     [footerHeight]="50"
+                     rowHeight="auto"
+                     [limit]="10"> </ngx-datatable>
+
+    </div>
+  </div>
+</div>

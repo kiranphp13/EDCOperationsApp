@@ -1,0 +1,48 @@
+<div class="col-md-12 user-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>User Details</h2>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+    <button class="btn btn-block btn-success" style="width:100px" (click)="addUser()">Add User</button>
+  </div>
+ 
+  <div class="row" style="margin-top:10px">
+    <div class="col-md-12">
+      <table datatable [dtOptions]="dtOptions"  [dtTrigger]="dtTrigger" class="row-border hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>User Name</th>
+            <th>Role</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="users?.length != 0">
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.fullName }}</td>
+            <td>{{ user.userName }}</td>
+            <td>{{ user.role }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.address }}</td>
+            <td>{{ user.status }}</td>
+          </tr>
+        </tbody>
+        <tbody *ngIf="users?.length == 0">
+          <tr>
+            <td colspan="3" class="no-data-available">No data!</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

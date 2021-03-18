@@ -67,7 +67,7 @@ export class AddUserComponent implements OnInit {
         });
   }
   onCancel() {
-    this.router.navigate(['listuser']);
+    this.router.navigate(['aggriduser']);
   }
   
 }    

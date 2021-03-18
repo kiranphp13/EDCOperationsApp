@@ -2,25 +2,20 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router } from "@angular/router";
 import { User } from "src/app/models/user";
 import { AuthService } from "src/app/auth.service";
+import { ButtonRendererComponent } from 'src/app/renderer/button-renderer.component';
+import { BtnCellRenderer } from 'src/app/button-cell-renderer.component';
 
-function actionCellRenderer(params) {
-  let eGui = document.createElement("div");
 
-  let editingCells = params.api.getEditingCells();
-  // checks if the rowIndex matches in at least one of the editing cells
-  let isCurrentRowEditing = editingCells.some((cell) => {
-    return cell.rowIndex === params.node.rowIndex;
-  });
-}
   @Component({
     selector: 'app-aggrid-user',
     templateUrl: './aggrid-user.component.html',
     styleUrls: ['./aggrid-user.component.css']
   })
   export class AggridUserComponent implements OnInit {
-    private gridApi;
-    private gridColumnApi;
-
+ 
+    frameworkComponents: any;
+    rowDataClicked1 = {};
+    rowDataClicked2 = {};
      
     private defaultColDef;
     private defaultColGroupDef;
@@ -28,52 +23,19 @@ function actionCellRenderer(params) {
     private rowData: [];
     users: User[];
     constructor(private router: Router, private apiService: AuthService) {
-      this.defaultColDef = {
-        width: 150,
-        editable: true,
-        filter: 'agTextColumnFilter',
-        floatingFilter: true,
-        resizable: true,
-      };
-      this.defaultColGroupDef = { marryChildren: true };
-      this.columnTypes = {
-        numberColumn: {
-          width: 130,
-          filter: 'agNumberColumnFilter',
-        },
-        medalColumn: {
-          width: 100,
-          columnGroupShow: 'open',
-          filter: false,
-        },
-        nonEditableColumn: { editable: false },
-        dateColumn: {
-          filter: 'agDateColumnFilter',
-          filterParams: {
-            comparator: function (filterLocalDateAtMidnight, cellValue) {
-              var dateParts = cellValue.split('/');
-              var day = Number(dateParts[0]);
-              var month = Number(dateParts[1]) - 1;
-              var year = Number(dateParts[2]);
-              var cellDate = new Date(year, month, day);
-              if (cellDate < filterLocalDateAtMidnight) {
-                return -1;
-              } else if (cellDate > filterLocalDateAtMidnight) {
-                return 1;
-              } else {
-                return 0;
-              }
-            },
-          },
-        },
+      this.frameworkComponents = {
+        btnCellRenderer: BtnCellRenderer
+
       }
+      this.defaultColDef = { resizable: true };
+
     }
 
+    addUser(): void {
+      this.router.navigate(['adduser']);
+    };
     ngOnInit() {
-      //if (!window.localStorage.getItem('token')) {
-      //  this.router.navigate(['login']);
-      //  return;
-      //}
+      
       if (localStorage.getItem("currentUser") === null) {
         this.router.navigate(['login'])
       }
@@ -84,24 +46,65 @@ function actionCellRenderer(params) {
         .subscribe(data => {
           this.users = data;
         });
+      //var gridOptions = {
+      //  defaultColDef: {
+      //    resizable: true,
+      //  },
+      //  columnDefs: columnDefs,
+      //  rowData: null,
+      //  onColumnResized: function (params) {
+      //    console.log(params);
+      //  },
+      //};
+
+      
     }
-    columnDefs = [      { field: 'id', width: '150' },
-      { field: 'fullName', sortable: true, filter: true, width: '150' },
-      { field: 'userName', sortable: true, filter: true, width: '150' },
-      { field: 'role', sortable: true, filter: true, width: '150' },
-      { field: 'email', sortable: true, filter: true, width: '150' },
-      { field: 'phone', sortable: true, filter: true, width: '150' },
-      { field: 'address', sortable: true, filter: true, width: '150' },
-      {
-        headerName: 'Edit',
-        cellRenderer: 'buttonRenderer',
-        cellRendererParams: {
-          onClick: this.onEditButtonClick.bind(this),
-          label: 'Edit'
+
+    columnDefs = [{ field: 'id', width: '80' },
+    { field: 'fullName', sortable: true, filter: true, width: '150' },
+    { field: 'userName', sortable: true, filter: true, width: '120' },
+    { field: 'role', sortable: true, filter: true, width: '100' },
+    { field: 'email', sortable: true, filter: true, width: '150' },
+    { field: 'phone', sortable: true, filter: true, width: '120' },
+    { field: 'address', sortable: true, filter: true, width: '150' },
+    {
+      field: 'id',
+      headerName: 'Edit',
+      cellRenderer: 'btnCellRenderer',
+      cellRendererParams: {
+        clicked: function (field: any) {
+          //alert(`${field} was clicked`);
+
+        },
+        label: 'Edit'
+      },
+      width: 90,
+    },
+    {
+      field: 'id',
+      headerName: 'View',
+      cellRenderer: 'btnCellRenderer',
+      cellRendererParams: {
+        clicked: function (field: any) {
+          //alert(`${field} was clicked`);
         }
-      }
+        ,
+        label: 'View'
+      },
+      width: 90,
+    }
+
     ];
 
+
+   
+    onBtnClick1(e) {
+      this.rowDataClicked1 = e.rowData;
+    }
+
+    onBtnClick2(e) {
+      this.rowDataClicked2 = e.rowData;
+    }
     onEditButtonClick(user: User) {
       //this.api.startEditingCell({
       //  rowIndex: params.rowIndex,
@@ -111,7 +114,7 @@ function actionCellRenderer(params) {
       this.router.navigate(['edituser']);
        
     }
-
+    
     //rowData = [
     //  { make: 'Toyota', model: 'Celica', price: 35000 },
     //  { make: 'Ford', model: 'Mondeo', price: 32000 },
