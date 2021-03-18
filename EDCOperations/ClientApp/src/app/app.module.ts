@@ -32,6 +32,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { ButtonRendererComponent } from './renderer/button-renderer.component';
 import { BtnCellRenderer } from './button-cell-renderer.component';
 import { ViewUserComponent } from './user/view-user/view-user.component';
+import { CommonModule } from '@angular/common';
+import { PasswordStrengthBarComponent } from './password-strength-bar/password-strength-bar.component';
 
 @NgModule({
   declarations: [
@@ -40,27 +42,27 @@ import { ViewUserComponent } from './user/view-user/view-user.component';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
- 
+
     LoginComponent,
- 
+
     RegisterComponent,
- 
+
     ProfileComponent,
- 
+
     DashboardComponent,
- 
+
     NotauthorizedComponent,
- 
+
     ForgotPasswordComponent,
- 
+
     ResetPasswordComponent,
- 
+
     ListUserComponent,
- 
+
     AddUserComponent,
- 
+
     EditUserComponent,
- 
+
     AggridUserComponent,
 
     AdUserComponent,
@@ -68,9 +70,9 @@ import { ViewUserComponent } from './user/view-user/view-user.component';
     NgxUserComponent,
     ButtonRendererComponent,
     BtnCellRenderer,
-    ViewUserComponent
- 
-     
+    ViewUserComponent,
+    PasswordStrengthBarComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -78,6 +80,7 @@ import { ViewUserComponent } from './user/view-user/view-user.component';
     FormsModule, ReactiveFormsModule,
     AgGridModule.withComponents([BtnCellRenderer]),
     ModalModule, DataTablesModule, NgxDatatableModule,
+    CommonModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
