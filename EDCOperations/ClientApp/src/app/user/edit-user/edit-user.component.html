@@ -10,16 +10,16 @@
             <h1 style="text-align:center">Update User</h1>
 
             <div class="form-group">
-              <label for="username">Full Name:</label>
+              <label for="username">Full Name<span style="color:red">*</span> :</label>
               <input type="text" formControlName="fullName" placeholder="Full Name" name="fullName" class="form-control" id="fullName">
             </div>
             <div class="form-group">
-              <label for="username">User Name:</label>
+              <label for="username">User Name<span style="color:red">*</span> :</label>
               <input type="text" formControlName="userName" placeholder="User Name" name="userName" class="form-control" id="userName">
 
             </div>
             <div class="form-group">
-              <label for="username">Password:</label>
+              <label for="username">Password</label>
               <!--<input type="text" formControlName="password" placeholder="Password" name="password" class="form-control" id="password">-->
               <button (click)="openModal('modalChangePassword')">Change Password</button>
               <jw-modal id="modalChangePassword">
@@ -52,13 +52,13 @@
               </jw-modal>
             </div>
             <div class="form-group">
-              <label for="username">Email:</label>
+              <label for="username">Email<span style="color:red">*</span> :</label>
               <input type="text" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
             </div>
 
 
             <div class="form-group">
-              <label for="username">Phone:</label>
+              <label for="username">Phone<span style="color:red">*</span> :</label>
               <input type="text" class="form-control" placeholder="Phone" formControlName="phone" name="phone">
             </div>
             <div class="form-group">
@@ -66,7 +66,7 @@
               <input type="text" class="form-control" placeholder="Address" formControlName="address" name="address">
             </div>
             <div class="form-group">
-              <label for="username">Role:</label>
+              <label for="username">Role<span style="color:red">*</span> :</label>
               <select formControlName="role" class="form-control" placeholder="Role" name="role">
                 <option value="Admin" selected>Admin</option>
                 <option value="Editor">Editor</option>
@@ -74,7 +74,7 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="username">Status:</label>
+              <label for="username">Status<span style="color:red">*</span> :</label>
               <select formControlName="status" class="form-control" placeholder="Status" name="status">
                 <option value="Active" selected>Active</option>
                 <option value="Inactive">Inactive</option>

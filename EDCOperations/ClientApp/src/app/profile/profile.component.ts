@@ -72,6 +72,12 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmit() {
+    if (this.profileForm.value.userName === "" || this.profileForm.value.fullName === "" || this.profileForm.value.password === "" ||
+      this.profileForm.value.email === "" ||
+      this.profileForm.value.phone === "") {
+      this.errorMessage = 'Please fill and validate all required fields.';
+      return;
+    }
     this.apiService.updateProfile(this.profileForm.value)
 
       .subscribe(

@@ -14,13 +14,20 @@ export class LoginComponent {
 
   errorMessage: string;
   constructor(private router: Router, private LoginService: LoginService) { }
-
+  fieldTextType: boolean;
+  repeatFieldTextType: boolean;
 
   ngOnInit() {
     sessionStorage.removeItem('UserName');
     sessionStorage.clear();
   }
-   
+  toggleFieldTextType() {
+    this.fieldTextType = !this.fieldTextType;
+  }
+
+  toggleRepeatFieldTextType() {
+    this.repeatFieldTextType = !this.repeatFieldTextType;
+  }
   login() {
     debugger;
     this.LoginService.Login(this.model).subscribe(

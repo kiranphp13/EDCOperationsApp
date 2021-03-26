@@ -14,6 +14,7 @@ export class ListUserComponent implements OnInit {
 
   users: User[];
   isNotReader: boolean;
+  isAdmin: boolean;
   constructor(private router: Router, private apiService: AuthService) { }
 
 
@@ -33,6 +34,13 @@ export class ListUserComponent implements OnInit {
     }
     else {
       this.isNotReader= true;
+    }
+
+    if (localStorage.getItem("currentUserRole") === "Admin") {
+      this.isAdmin = true;
+    }
+    else {
+      this.isAdmin = false;
     }
    
     this.apiService.getUsers()

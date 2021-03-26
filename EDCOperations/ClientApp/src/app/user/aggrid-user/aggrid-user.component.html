@@ -8,7 +8,7 @@
   </div>
   <div class="row">
     <div class="col-md-2">
-      <button class="btn btn-block btn-success" style="width:100px" (click)="addUser()">Add User</button>
+      <button class="btn btn-block btn-success" style="width:100px" (click)="addUser()" *ngIf="isAdmin">Add User</button>
     </div>
     <div class="col-md-2">
       <button class="btn btn-block btn-success" style=" width:150px" (click)="onBtExport()">Export to CSV</button>

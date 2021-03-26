@@ -50,13 +50,19 @@ export class AddUserComponent implements OnInit {
     });
   }
   onSubmit() {
+    if (this.addForm.value.userName === "" || this.addForm.value.fullName === "" || this.addForm.value.password === "" ||
+      this.addForm.value.email === "" || this.addForm.value.status === "" || this.addForm.value.role === "" ||
+      this.addForm.value.phone === "" ) {
+      this.errorMessage = 'Please fill and validate all required fields.';
+      return;
+    }
     this.apiService.createUser(this.addForm.value)
 
       .subscribe(
         data => {
           if (data.Status === "Success") {
             alert('User created successfully.');
-            this.router.navigate(['listuser']);
+            this.router.navigate(['aggriduser']);
           } else {
             //alert(data.message);
             this.errorMessage = data.Message;

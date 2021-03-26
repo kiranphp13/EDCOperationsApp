@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
-  isExpanded = false; username = "";
+  isExpanded = false; username = ""; 
   constructor(private router: Router, private LoginService: LoginService, private authService:  AuthService) { }
   collapse() {
     this.isExpanded = false;
@@ -30,6 +30,7 @@ export class NavMenuComponent {
     if (!this.isAuthorized) {
       this.router.navigate(['login']);
     }
+   
     }
  
 
@@ -37,6 +38,9 @@ export class NavMenuComponent {
     return this.authService.isAdmin();
   }
 
+  get isReader() {
+    return this.authService.isReader();
+  }
   logout() {
     this.LoginService.Logout();
     this.router.navigate(['/login']);

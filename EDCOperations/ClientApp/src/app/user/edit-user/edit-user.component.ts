@@ -73,6 +73,12 @@ export class EditUserComponent implements OnInit {
 
   }
   onSubmit() {
+    if (this.editForm.value.userName === "" || this.editForm.value.fullName === "" || this.editForm.value.password === "" ||
+      this.editForm.value.email === "" || this.editForm.value.status === "" || this.editForm.value.role === "" ||
+      this.editForm.value.phone === "") {
+      this.errorMessage = 'Please fill and validate all required fields.';
+      return;
+    }
     this.apiService.updateUser(this.editForm.value)
 
       .subscribe(

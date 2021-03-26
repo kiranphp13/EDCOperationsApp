@@ -47,7 +47,7 @@ class DataTablesResponse {
     dtTrigger: Subject<any> = new Subject<any>();
     isNotReader: boolean;
       data: any;
-   
+    isAdmin: boolean;
     constructor(private router: Router, private apiService: AuthService, private http: HttpClient) {
       
     }
@@ -73,6 +73,12 @@ class DataTablesResponse {
       }
       else {
         this.isNotReader = true;
+      }
+      if (localStorage.getItem("currentUserRole") === "Admin") {
+        this.isAdmin = true;
+      }
+      else {
+        this.isAdmin = false;
       }
       this.apiService.getUsers()
         .subscribe(data => {

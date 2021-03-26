@@ -38,6 +38,20 @@ export class AuthService {
     else
       return false;
   }
+  isReader() {
+    if (localStorage.getItem("currentUserRole") === "Reader") {
+      return true;
+    }
+    else
+      return false;
+  }
+  isEditor() {
+    if (localStorage.getItem("currentUserRole") === "Editor") {
+      return true;
+    }
+    else
+      return false;
+  }
   logout() {
     this.LoginService.Logout();
     this.router.navigate(['/login']);

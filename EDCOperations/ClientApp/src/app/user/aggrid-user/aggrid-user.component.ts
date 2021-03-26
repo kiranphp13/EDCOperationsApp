@@ -167,6 +167,7 @@ export class AggridUserComponent implements OnInit {
   users: User[];
   private gridApi;
   private gridColumnApi;
+  isAdmin: boolean;
 
   constructor(private router: Router, private apiService: AuthService) {
     this.frameworkComponents = {
@@ -215,7 +216,8 @@ export class AggridUserComponent implements OnInit {
   //  this.agGrid.columnApi.setColumnsVisible(['model'], false);
     //let filterInstance = this.gridOptions.api.getFilterInstance("name_col");
 
-    if (localStorage.getItem("currentUserRole") === "Reader") {
+    if (localStorage.getItem("currentUserRole") !== "Admin") {
+      this.isAdmin = false;
       this.columnDefs = [
         {
           field: 'id', width: '80', sortable: true, filter: 'agNumberColumnFilter',
@@ -254,6 +256,7 @@ export class AggridUserComponent implements OnInit {
       ];
     }
     else {
+      this.isAdmin = true;
       this.columnDefs = [{
         field: 'id', width: '80', sortable: true, filter: 'agNumberColumnFilter',
         filterParams: numberFilterParams},

@@ -6,31 +6,31 @@
 
 
 
-          <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+          <form [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
             <h1 style="text-align:center">Create User</h1>
 
             <div class="form-group">
-              <label for="username">Full Name:</label>
-              <input type="text" formControlName="fullName" placeholder="Full Name" name="fullName" class="form-control" id="fullName">
+              <label for="username">Full Name<span style="color:red">*</span> :</label>
+              <input type="text" formControlName="fullName" placeholder="Full Name" name="fullName" class="form-control" id="fullName" required>
             </div>
             <div class="form-group">
-              <label for="username">User Name:</label>
-              <input type="text" formControlName="userName" placeholder="User Name" name="userName" class="form-control" id="userName">
+              <label for="username">User Name<span style="color:red">*</span> :</label>
+              <input type="text" formControlName="userName" placeholder="User Name" name="userName" class="form-control" id="userName" required>
 
             </div>
             <div class="form-group">
-              <label for="username">Password:</label>
-              <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control" id="password">
+              <label for="username">Password<span style="color:red">*</span> :</label>
+              <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control" id="password" required>
 
             </div>
             <div class="form-group">
-              <label for="username">Email:</label>
-              <input type="text" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+              <label for="username">Email<span style="color:red">*</span> :</label>
+              <input type="text" formControlName="email" placeholder="Email" name="email" class="form-control" id="email" required>
             </div>
 
             <div class="form-group">
-              <label for="username">Phone:</label>
-              <input type="text" class="form-control" placeholder="Phone" formControlName="phone" name="phone">
+              <label for="username">Phone<span style="color:red">*</span> :</label>
+              <input type="text" class="form-control" placeholder="Phone" formControlName="phone" name="phone" required>
             </div>
             <div class="form-group">
               <label for="username">Address:</label>
@@ -38,16 +38,16 @@
             </div>
 
             <div class="form-group">
-              <label for="username">Role:</label>
-              <select formControlName="role" class="form-control" placeholder="Role" name="role">
+              <label for="username">Role<span style="color:red">*</span> :</label>
+              <select formControlName="role" class="form-control" placeholder="Role" name="role" required>
                 <option value="Admin" selected="selected">Admin</option>
                 <option value="Editor">Editor</option>
                 <option value="Reader">Reader</option>
               </select>
             </div>
             <div class="form-group">
-              <label for="username">Status:</label>
-              <select formControlName="status" class="form-control" placeholder="Status" name="status">
+              <label for="username">Status<span style="color:red">*</span> :</label>
+              <select formControlName="status" class="form-control" placeholder="Status" name="status" required>
                 <option value="Active" selected="selected">Active</option>
                 <option value="Inactive">Inactive</option>
               </select>
@@ -63,7 +63,7 @@
           </form>
           <div class="row">
             <div class="col-6">
-              <button type="submit" class="btn btn-block btn-success" style="width:100px" (click)="onSubmit()">Submit</button>
+              <button type="submit" class="btn btn-block btn-success" style="width:100px" (click)="onSubmit()" >Submit</button>
             </div>
             <div class="col-6 text-right">
               <button class="btn btn-danger" style="width:100px" (click)="onCancel()">Cancel</button>

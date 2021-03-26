@@ -7,7 +7,7 @@
     <div class="container" >
       
       <a class="nav-link" [routerLink]="['/']">
-        <img src="../../assets/EDC logo_2021Feb01.gif" /> Operations</a>
+        <img src="assets/EDC logo_2021Feb01.gif" /> Operations</a>
       <button class="navbar-toggler"
               type="button"
               data-toggle="collapse"
@@ -41,7 +41,7 @@
           <li class="nav-item" *ngIf="isAuthorized">
     <a class="nav-link text-dark" [routerLink]="['listuser']">Users (Classic)</a>
   </li>
-          <li class="nav-item" *ngIf="isAuthorized">
+          <li class="nav-item" *ngIf="isAuthorized && !isReader">
             <a class="nav-link text-dark" [routerLink]="['aggriduser']"> Users (ag Grid)</a>
           </li>
           <li class="nav-item" *ngIf="isAuthorized">
