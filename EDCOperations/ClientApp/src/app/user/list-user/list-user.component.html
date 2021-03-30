@@ -40,7 +40,7 @@
             <td>{{user.address}}</td>
             <td>{{user.role}}</td>
             <td>{{user.status}}</td>
-            <td *ngIf="isNotReader">
+            <td *ngIf="isAdmin">
               <button class="btn btn-primary px-4" (click)="editUser(user)">Edit</button>
             </td>
             <td>

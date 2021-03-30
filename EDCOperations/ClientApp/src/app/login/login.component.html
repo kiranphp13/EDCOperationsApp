@@ -17,13 +17,21 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="icon-lock"></i></span>
                 </div>
-                <input type="password" name="Passward" [(ngModel)]="model.Password" class="form-control"
+                <input [type]="fieldTextType ? 'text' : 'password'" name="Passward" [(ngModel)]="model.Password" class="form-control"
                        placeholder="Password">
                 <div class="input-group-append">
                   <span class="input-group-text">
-                    <i class="fa fa-eye-slash"></i>
+                    <i class="fa"
+                       [ngClass]="{
+          'fa-eye-slash': !fieldTextType,
+          'fa-eye': fieldTextType
+        }"
+                       (click)="toggleFieldTextType()"></i>
+
                   </span>
                 </div>
+                
+
               </div>
               <div>
                 <p style="color:#E92626;font-size:20px;font-weight:normal" Class="success" align="left">

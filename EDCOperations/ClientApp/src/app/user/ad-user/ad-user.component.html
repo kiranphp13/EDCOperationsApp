@@ -40,11 +40,11 @@
               <td>
                 {{ user.status }}
               </td>
-              <td *ngIf="isNotReader">
-                <button class="btn btn-primary px-4" (click)="editUser(user)">Edit</button>
+              <td >
+                <button class="btn btn-primary px-4" (click)="editUser(user)" *ngIf="isAdmin">Edit</button>
               </td>
               <td>
-                <button class="btn btn-primary px-4" (click)="viewUser(user)">View</button>
+                <button class="btn btn-primary px-4" (click)="viewUser(user)" >View</button>
               </td>
             </tr>
           </tbody>

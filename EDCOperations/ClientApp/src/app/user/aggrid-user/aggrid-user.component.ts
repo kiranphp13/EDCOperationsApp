@@ -220,14 +220,14 @@ export class AggridUserComponent implements OnInit {
       this.isAdmin = false;
       this.columnDefs = [
         {
-          field: 'id', width: '80', sortable: true, filter: 'agNumberColumnFilter',
+          field: 'id', width: '120', sortable: true, filter: 'agNumberColumnFilter',
           filterParams: numberFilterParams
         },
         { field: 'fullName', sortable: true, filter: true, width: '120', filterParams: dateFilterParams },
         { field: 'userName', sortable: true, filter: true, width: '120', filterParams: dateFilterParams },
-        { field: 'email', sortable: true, filter: true, width: '120', filterParams: dateFilterParams },
+        { field: 'email', sortable: true, filter: true, width: '150', filterParams: dateFilterParams },
         { field: 'phone', sortable: true, filter: true, width: '120', filterParams: dateFilterParams },
-        { field: 'address', sortable: true, filter: true, width: '120', filterParams: dateFilterParams },
+        { field: 'address', sortable: true, filter: true, width: '150', filterParams: dateFilterParams },
         { field: 'role', sortable: true, filter: true, width: '100', filterParams: dateFilterParams },
         { field: 'status', sortable: true, filter: true, width: '100', filterParams: dateFilterParams },
         {
