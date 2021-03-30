@@ -3,37 +3,4 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <form class="form-horizontal" method="" action="">
-
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Email</label>
-                            <div class="col-md-6">
-                                <input type="email" class="form-control" name="email" value="">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label">Password</label>
-                            <div class="col-md-6">
-                                <input type="password" class="form-control"
-                                    id="password" name="password" placeholder="Enter password"
-                                    [(ngModel)]="account.password" #password="ngModel" minlength="5" maxlength="50"
-                                    required>
-
-                                <app-password-strength-bar [passwordToCheck]="account.password" [barLabel]="barLabel">
-                                </app-password-strength-bar>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 </body>
