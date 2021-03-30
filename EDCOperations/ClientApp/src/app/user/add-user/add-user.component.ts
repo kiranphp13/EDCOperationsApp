@@ -19,6 +19,10 @@ export class AddUserComponent implements OnInit {
   user: User;
   addForm: FormGroup;
   errorMessage: string;
+  public account = {
+    password: null
+  };
+  public barLabel: string = "Password strength: ";
   constructor(private router: Router, private apiService: AuthService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
@@ -29,7 +33,7 @@ export class AddUserComponent implements OnInit {
     //  Email: ['', [Validators.required]],
     //  ContactNo: ['', [Validators.required]],
     //  Address: ['', [Validators.required]],
-    //}); 
+    //});
     if (localStorage.getItem("currentUser") === null) {
       this.router.navigate(['login'])
     }
@@ -75,5 +79,5 @@ export class AddUserComponent implements OnInit {
   onCancel() {
     this.router.navigate(['aggriduser']);
   }
-  
-}    
+
+}
