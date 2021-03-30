@@ -169,7 +169,7 @@ export class AggridUserComponent implements OnInit , Input{
   private gridApi;
   private gridColumnApi;
   isAdmin: boolean;
-  
+  searchText: string;
 
   constructor(private router: Router, private apiService: AuthService) {
     this.frameworkComponents = {
@@ -331,7 +331,7 @@ export class AggridUserComponent implements OnInit , Input{
     
   onBtSearch() {
     //gridOptions.api.setQuickFilter(document.getElementById('filter-text-box').value);
-    this.gridApi.setQuickFilter(document.getElementById('filter-text-box').value);
+    this.gridApi.setQuickFilter(this.searchText);
 
   }
     

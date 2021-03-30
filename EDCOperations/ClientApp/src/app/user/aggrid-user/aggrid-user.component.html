@@ -21,7 +21,7 @@
       
     </div>
     <div class="col-md-2">
-      <input type="text" id="filter-text-box" placeholder="Search.."   (keyup)="onBtSearch()">
+      <input type="text" id="filter-text-box" [(ngModel)]="searchText" placeholder="Search.."   (keyup)="onBtSearch()">
       <!--<button class="btn btn-block btn-success" style=" width:150px" (click)="onBtSearch()">Search</button>-->
     </div>
     
