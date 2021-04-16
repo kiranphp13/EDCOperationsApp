@@ -36,7 +36,9 @@
                   <div class="col-10" align="center">
                     <div class="form-group">
                       <!--<label for="password">Pasword<span style="color:red">*</span> :</label>-->
-                      <input type="text" formControlName="password" placeholder="Password" name="password" class="form-control" id="password" />
+                      <input type="text" formControlName="password" placeholder="Password" name="password" class="form-control" id="password" #password />
+                      <app-password-strength-bar [passwordToCheck]="password.value" [barLabel]="barLabel">
+                      </app-password-strength-bar>
 
                     </div>
                   </div>

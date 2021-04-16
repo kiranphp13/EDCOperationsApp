@@ -17,6 +17,8 @@ export class AddUserComponent implements OnInit {
 
   model: any = {};
   user: User;
+  roles: [];
+  status: [];
   addForm: FormGroup;
   errorMessage: string;
   public account = {
@@ -34,6 +36,14 @@ export class AddUserComponent implements OnInit {
     //  ContactNo: ['', [Validators.required]],
     //  Address: ['', [Validators.required]],
     //});
+    this.apiService.getRoles()
+      .subscribe(data => {
+        this.roles = data;
+      });
+    this.apiService.getStatus()
+      .subscribe(data => {
+        this.status = data;
+      });
     if (localStorage.getItem("currentUser") === null) {
       this.router.navigate(['login'])
     }
@@ -50,12 +60,14 @@ export class AddUserComponent implements OnInit {
       status: ['', Validators.required],
       role: ['', Validators.required],
       phone: ['', Validators.required],
-      token: ['', Validators.required]
+      token: ['', Validators.required],
+      statusId: ['', Validators.required],
+      roleId: ['', Validators.required],
     });
   }
   onSubmit() {
     if (this.addForm.value.userName === "" || this.addForm.value.fullName === "" || this.addForm.value.password === "" ||
-      this.addForm.value.email === "" || this.addForm.value.status === "" || this.addForm.value.role === "" ||
+      this.addForm.value.email === "" || this.addForm.value.statusId === "" || this.addForm.value.roleId === "" ||
       this.addForm.value.phone === "" ) {
       this.errorMessage = 'Please fill and validate all required fields.';
       return;

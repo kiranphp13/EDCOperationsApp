@@ -16,7 +16,9 @@ export class ProfileComponent implements OnInit {
   profileForm: FormGroup;
   errorMessage: string;
   userId: number;
-
+  roles: [];
+  status: [];
+  public barLabel: string = "Password strength: ";
   constructor(private router: Router, private apiService: AuthService, private formBuilder: FormBuilder, private modalService: ModalService) { }
 
   ngOnInit() {
@@ -37,6 +39,14 @@ export class ProfileComponent implements OnInit {
           this.profileForm.setValue(data);
 
         });
+      this.apiService.getRoles()
+        .subscribe(data => {
+          this.roles = data;
+        });
+      this.apiService.getStatus()
+        .subscribe(data => {
+          this.status = data;
+        });
     }
     this.profileForm = this.formBuilder.group({
       id: [''],
@@ -49,7 +59,9 @@ export class ProfileComponent implements OnInit {
       role: ['', Validators.required],
       phone: ['', Validators.required],
       token: ['', Validators.required],
-      createdDate: ['', Validators.required]
+      createdDate: ['', Validators.required],
+      statusId: ['', Validators.required],
+      roleId: ['', Validators.required],
     });
   }
   openModal(id: string) {

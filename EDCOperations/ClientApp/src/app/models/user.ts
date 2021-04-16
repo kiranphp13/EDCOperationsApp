@@ -10,4 +10,7 @@ export class User {
   Phone: string;
   Address: string;
   Status: string;
+  RoleId: string;
+  StatusId: string;
+
 }

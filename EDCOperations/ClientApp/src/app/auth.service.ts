@@ -58,11 +58,17 @@ export class AuthService {
   }
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>(this.url + 'User/GetUsers');
-  } 
-
+  }
   getUser(userId: string): Observable<User> {
     return this.http.get<User>(this.url + 'User/GetUser/' + userId);
   }
+  getRoles(): Observable<any> {
+    return this.http.get<any>(this.url + 'User/GetRoles');
+  }
+  getStatus(): Observable<any> {
+    return this.http.get<any>(this.url + 'User/GetStatus');
+  }
+ 
   createUser(model: any) {
     //const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
     return this.http.post<any>(this.url + 'User/CreateUser', model, { headers: this.header })

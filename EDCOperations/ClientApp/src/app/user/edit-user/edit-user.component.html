@@ -31,8 +31,9 @@
                   <div class="col-10" align="center">
                     <div class="form-group">
                       <!--<label for="password">Pasword:</label>-->
-                      <input type="text" formControlName="password" placeholder="Password" name="password" class="form-control" id="password" />
-
+                      <input type="text" formControlName="password" placeholder="Password" name="password" class="form-control" id="password" #password />
+                      <app-password-strength-bar [passwordToCheck]="password.value" [barLabel]="barLabel">
+                      </app-password-strength-bar>
                     </div>
                   </div>
                   <div class="col-1">
@@ -67,17 +68,23 @@
             </div>
             <div class="form-group">
               <label for="username">Role<span style="color:red">*</span> :</label>
-              <select formControlName="role" class="form-control" placeholder="Role" name="role">
+              <!--<select formControlName="role" class="form-control" placeholder="Role" name="role">
                 <option value="Admin" selected>Admin</option>
                 <option value="Editor">Editor</option>
                 <option value="Reader">Reader</option>
+              </select>-->
+              <select formControlName="roleId" class="form-control" placeholder="Role" name="role" required>
+                <option *ngFor="let role of roles" [value]="role.roleId">{{role.roleName}}</option>
               </select>
             </div>
             <div class="form-group">
               <label for="username">Status<span style="color:red">*</span> :</label>
-              <select formControlName="status" class="form-control" placeholder="Status" name="status">
+              <!--<select formControlName="status" class="form-control" placeholder="Status" name="status">
                 <option value="Active" selected>Active</option>
                 <option value="Inactive">Inactive</option>
+              </select>-->
+              <select formControlName="statusId" class="form-control" placeholder="Status" name="status" required>
+                <option *ngFor="let statusItem of status" [value]="statusItem.statusId">{{statusItem.statusName}}</option>
               </select>
             </div>
             <div>

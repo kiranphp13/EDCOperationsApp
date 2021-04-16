@@ -15,7 +15,8 @@ export class ViewUserComponent implements OnInit {
   user: User;
   editForm: FormGroup;
   errorMessage: string; initPassword: string;
-
+  roles: [];
+  status: [];
   constructor(private router: Router, private apiService: AuthService, private formBuilder: FormBuilder, private modalService: ModalService) { }
 
   ngOnInit() {
@@ -38,6 +39,14 @@ export class ViewUserComponent implements OnInit {
           this.editForm.setValue(data);
 
         });
+      this.apiService.getRoles()
+        .subscribe(data => {
+          this.roles = data;
+        });
+      this.apiService.getStatus()
+        .subscribe(data => {
+          this.status = data;
+        });
     }
     this.editForm = this.formBuilder.group({
       id: [''],
@@ -49,7 +58,9 @@ export class ViewUserComponent implements OnInit {
       status: ['', Validators.required],
       role: ['', Validators.required],
       phone: ['', Validators.required],
-      token: ['', Validators.required]
+      token: ['', Validators.required],
+      statusId: ['', Validators.required],
+      roleId: ['', Validators.required],
     });
   }
   openModal(id: string) {

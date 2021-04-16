@@ -85,7 +85,8 @@ function getParams() {
     columnSeparator: getValue('none'),
     //customHeader: 'none',
     //customFooter: 'none',
-    columnKeys: ['fullName','userName','email','phone','address','role','status']
+    columnKeys: ['fullName', 'userName', 'email', 'phone', 'address', 'role', 'status'],
+    fileName:"User Details"
   };
 }
 
@@ -154,7 +155,7 @@ function getValue(text) {
   templateUrl: './aggrid-user.component.html',
   styleUrls: ['./aggrid-user.component.css']
 })
-export class AggridUserComponent implements OnInit , Input{
+export class AggridUserComponent implements OnInit {
 
   frameworkComponents: any;
   rowDataClicked1 = {};
@@ -170,13 +171,19 @@ export class AggridUserComponent implements OnInit , Input{
   private gridColumnApi;
   isAdmin: boolean;
   searchText: string;
-
+  public paginationPageSize;
+  pageSize: string;
   constructor(private router: Router, private apiService: AuthService) {
     this.frameworkComponents = {
       btnCellRenderer: BtnCellRenderer
 
     }
-    this.defaultColDef = { resizable: true, };
+    this.defaultColDef = {
+      resizable: true 
+    };
+    this.pageSize = "10";
+
+    this.paginationPageSize = 10;
 
   }
 
@@ -196,7 +203,7 @@ export class AggridUserComponent implements OnInit , Input{
 
   
   ngOnInit() {
-
+   
     if (localStorage.getItem("currentUser") === null) {
       this.router.navigate(['login'])
     }
@@ -316,7 +323,11 @@ export class AggridUserComponent implements OnInit , Input{
   }
 
 
-  
+  onPageSizeChanged() {
+    var value = this.pageSize;
+    this.gridApi.paginationSetPageSize(Number(value));
+  }
+
 
   onBtExport() {
     var params = getParams();

@@ -14,8 +14,10 @@ export class EditUserComponent implements OnInit {
 
   user: User;
   editForm: FormGroup;
+  roles: [];
+  status: [];
   errorMessage: string; initPassword: string;
-
+  public barLabel: string = "Password strength: ";
   constructor(private router: Router, private apiService: AuthService, private formBuilder: FormBuilder, private modalService: ModalService) { }
 
   ngOnInit() {
@@ -38,6 +40,14 @@ export class EditUserComponent implements OnInit {
           this.editForm.setValue(data);
 
         });
+      this.apiService.getRoles()
+        .subscribe(data => {
+          this.roles = data;
+        });
+      this.apiService.getStatus()
+        .subscribe(data => {
+          this.status = data;
+        });
     }
     this.editForm = this.formBuilder.group({
       id: [''],
@@ -50,8 +60,9 @@ export class EditUserComponent implements OnInit {
       role: ['', Validators.required],
       phone: ['', Validators.required],
       token: ['', Validators.required],
-      createdDate: ['', Validators.required]
-     
+      createdDate: ['', Validators.required],
+      statusId: ['', Validators.required],
+      roleId: ['', Validators.required],
     });
   }
   openModal(id: string) {
@@ -74,7 +85,7 @@ export class EditUserComponent implements OnInit {
   }
   onSubmit() {
     if (this.editForm.value.userName === "" || this.editForm.value.fullName === "" || this.editForm.value.password === "" ||
-      this.editForm.value.email === "" || this.editForm.value.status === "" || this.editForm.value.role === "" ||
+      this.editForm.value.email === "" || this.editForm.value.statusId === "" || this.editForm.value.roleId === "" ||
       this.editForm.value.phone === "") {
       this.errorMessage = 'Please fill and validate all required fields.';
       return;
