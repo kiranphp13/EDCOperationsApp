@@ -4,85 +4,141 @@
 
 <header>
   <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" style="background-color: #1b6ec2 !important">
-    
-      
-      <a class="nav-link" [routerLink]="['/']">
-        <img src="assets/EDC logo_2021Feb01.gif" /> Operations</a>
-      <button class="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target=".navbar-collapse"
-              aria-label="Toggle navigation"
-              [attr.aria-expanded]="isExpanded"
-              (click)="toggle()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
-           [ngClass]="{ show: isExpanded }">
-        <ul class="navbar-nav flex-grow">
-          <!--<li class="nav-item"
-      [routerLinkActive]="['link-active']"
-      [routerLinkActiveOptions]="{ exact: true }">
-    <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
-  </li>-->
-          <!--<li class="nav-item" [routerLinkActive]="['link-active']">
-    <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
-  </li>
-  <li class="nav-item" [routerLinkActive]="['link-active']">
-    <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
-  </li>-->
-          <!--<li class="nav-item" [routerLinkActive]="['link-active']">
-    <a class="nav-link text-dark" [routerLink]="['/register']">Register</a>
-  </li>-->
-          <!-- Admin only -->
-          <li class="nav-item" *ngIf="isAuthorized">
-            <a class="nav-link text-dark" [routerLink]="['dashboard']">Dashboard</a>
-          </li>
-          <!--<li class="nav-item" *ngIf="isAuthorized">
-    <a class="nav-link text-dark" [routerLink]="['listuser']">Users (Classic)</a>
-  </li>-->
-          <li class="nav-item" *ngIf="isAuthorized && !isReader">
-            <a class="nav-link text-dark" [routerLink]="['aggriduser']"> Users (ag Grid)</a>
-          </li>
-          <li class="nav-item" *ngIf="isAuthorized">
-    <a class="nav-link text-dark" [routerLink]="['aduser']">Users (ad Grid)</a>
-  </li>
-  <!--<li class="nav-item" *ngIf="isAdmin">
-    <a class="nav-link text-dark" [routerLink]="['ngxuser']">Users (ngx Grid)</a>
-  </li>-->
-          <!--<li class="nav-item" *ngIf="isAdmin || isAuthorized">
-    <a class="nav-link text-dark" [routerLink]="['profile']">Profile</a>
-  </li>-->
-          <!-- Anonymous only -->
-          <!--<li class="nav-item" *ngIf="!isAuthorized">
-    <a class="nav-link text-dark" [routerLink]="['login']">Login</a>
-  </li>-->
-          <!-- Authorized only -->
-          <!--<li class="nav-item" *ngIf="isAuthorized">
-    <a class="nav-link text-dark" (click)="logout()">Logout</a>
-  </li>-->
-          <!--<li class="nav-item text-dark" *ngIf="isAuthorized"> <a class="nav-link"> Hi {{username}}!!</a> </li>-->
-          <!--<li class="nav-item dropdown" *ngIf="isAuthorized">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              Hi {{username}}!!
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a lass="dropdown-item nav-link text-dark" [routerLink]="['profile']">Profile</a>
-              <a lass="dropdown-item nav-link text-dark" (click)="logout()">Logout</a>
-            </div>
-          </li>-->
-          <li class="nav-item dropdown" *ngIf="isAuthorized">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Hi {{username}}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="" (click)="logout()">Logout</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    
+
+
+    <a class="nav-link" [routerLink]="['/']">
+      <img src="assets/EDC logo_2021Feb01.gif" /> Operations
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target=".navbar-collapse"
+            aria-label="Toggle navigation"
+            [attr.aria-expanded]="isExpanded"
+            (click)="toggle()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse"
+         [ngClass]="{ show: isExpanded }">
+      <ul class="navbar-nav flex-grow">
+        <!--<li class="nav-item"
+            [routerLinkActive]="['link-active']"
+            [routerLinkActiveOptions]="{ exact: true }">
+          <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
+        </li>-->
+        <!--<li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-dark" [routerLink]="['/counter']">Counter</a>
+        </li>
+        <li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-dark" [routerLink]="['/fetch-data']">Fetch data</a>
+        </li>-->
+        <!--<li class="nav-item" [routerLinkActive]="['link-active']">
+          <a class="nav-link text-dark" [routerLink]="['/register']">Register</a>
+        </li>-->
+        <!-- Admin only -->
+        <!--<li class="nav-item" *ngIf="isAuthorized">
+          <a class="nav-link text-dark" [routerLink]="['dashboard']">Dashboard</a>
+        </li>-->
+        <!--<li class="nav-item dropdown" *ngIf="isAuthorized">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Main Menu
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item">Order Processing Menu</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Marketing Information Menu</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Execute and Print Reports</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Update/Support Letter Processing Menu</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Mailing List Generation</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Not Used-Mass Update Processing Menu</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Print Current Run of Reports</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">EDC Training Management</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Purchase Order System</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">SAE Session Organization</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item">Database Administration Menu</a>
+
+          </div>
+        </li>-->
+        <!--<li class="nav-item" *ngIf="isAuthorized">
+          <a class="nav-link text-dark" [routerLink]="['listuser']">Users (Classic)</a>
+        </li>-->
+        <li class="nav-item" *ngIf="isAuthorized && !isReader">
+          <a class="nav-link text-dark" href="#">Marketing</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthorized && !isReader">
+          <a class="nav-link text-dark" href="#">Order Processing</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthorized && !isReader">
+          <a class="nav-link text-dark" href="#">Contacts</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="isAuthorized">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Administration
+
+          </a>
+          <ul class="dropdown-menu">
+            <li> <a class="dropdown-item" [routerLink]="['aggriduser']">EDC Users</a></li>
+            <li><a class="dropdown-item" [routerLink]="['contacttypes']">Contact Types</a></li>
+            <li><a class="dropdown-item" [routerLink]="['collaterals']">Collaterals</a></li>
+            <li><a class="dropdown-item" [routerLink]="['associations']">Associations</a></li>
+            <li><a class="dropdown-item" [routerLink]="['userstatus']">User Status</a></li>
+            <li><a class="dropdown-item" [routerLink]="['userrole']">EDC User Roles</a></li>
+          </ul>
+        </li>
+
+
+        <!--<li class="nav-item" *ngIf="isAuthorized && !isReader">
+          <a class="nav-link text-dark" [routerLink]="['aggriduser']"> Users (ag Grid)</a>
+        </li>
+        <li class="nav-item" *ngIf="isAuthorized">
+          <a class="nav-link text-dark" [routerLink]="['aduser']">Users (ad Grid)</a>
+        </li>-->
+        <!--<li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link text-dark" [routerLink]="['ngxuser']">Users (ngx Grid)</a>
+        </li>-->
+        <!--<li class="nav-item" *ngIf="isAdmin || isAuthorized">
+          <a class="nav-link text-dark" [routerLink]="['profile']">Profile</a>
+        </li>-->
+        <!-- Anonymous only -->
+        <!--<li class="nav-item" *ngIf="!isAuthorized">
+          <a class="nav-link text-dark" [routerLink]="['login']">Login</a>
+        </li>-->
+        <!-- Authorized only -->
+        <!--<li class="nav-item" *ngIf="isAuthorized">
+          <a class="nav-link text-dark" (click)="logout()">Logout</a>
+        </li>-->
+        <!--<li class="nav-item text-dark" *ngIf="isAuthorized"> <a class="nav-link"> Hi {{username}}!!</a> </li>-->
+        <!--<li class="nav-item dropdown" *ngIf="isAuthorized">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Hi {{username}}!!
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a lass="dropdown-item nav-link text-dark" [routerLink]="['profile']">Profile</a>
+            <a lass="dropdown-item nav-link text-dark" (click)="logout()">Logout</a>
+          </div>
+        </li>-->
+        <li class="nav-item dropdown" *ngIf="isAuthorized">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Hi {{username}}
+
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" [routerLink]="['profile']">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="" (click)="logout()">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+
   </nav>
 </header>

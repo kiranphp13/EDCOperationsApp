@@ -34,6 +34,23 @@ import { BtnCellRenderer } from './button-cell-renderer.component';
 import { ViewUserComponent } from './user/view-user/view-user.component';
 import { CommonModule } from '@angular/common';
 import { PasswordStrengthBarComponent } from './password-strength-bar/password-strength-bar.component';
+import { ContacttypesComponent } from './contacttypes/contacttypes.component';
+import { AddcontacttypesComponent } from './contacttypes/addcontacttypes/addcontacttypes.component';
+import { GetcollateralsComponent } from './collaterals/getcollaterals/getcollaterals.component';
+import { AddcollateralsComponent } from './collaterals/addcollaterals/addcollaterals.component';
+import { GetassociationsComponent } from './associations/getassociations/getassociations.component';
+import { AddassociationsComponent } from './associations/addassociations/addassociations.component';
+import { GetuserstatusComponent } from './userstatus/getuserstatus/getuserstatus.component';
+import { AdduserstatusComponent } from './userstatus/adduserstatus/adduserstatus.component';
+import { AdduserroleComponent } from './userrole/adduserrole/adduserrole.component';
+import { GetuserroleComponent } from './userrole/getuserrole/getuserrole.component';
+import { EdituserroleComponent } from './userrole/edituserrole/edituserrole.component';
+import { EdituserstatusComponent } from './userstatus/edituserstatus/edituserstatus.component';
+import { EditassociationsComponent } from './associations/editassociations/editassociations.component';
+import { EditcollateralsComponent } from './collaterals/editcollaterals/editcollaterals.component';
+import { EditcontacttypesComponent } from './contacttypes/editcontacttypes/editcontacttypes.component';
+
+
 
 @NgModule({
   declarations: [
@@ -42,36 +59,39 @@ import { PasswordStrengthBarComponent } from './password-strength-bar/password-s
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-
     LoginComponent,
-
     RegisterComponent,
-
     ProfileComponent,
-
     DashboardComponent,
-
     NotauthorizedComponent,
-
     ForgotPasswordComponent,
-
     ResetPasswordComponent,
-
     ListUserComponent,
-
     AddUserComponent,
-
     EditUserComponent,
-
     AggridUserComponent,
-
     AdUserComponent,
-
     NgxUserComponent,
     ButtonRendererComponent,
     BtnCellRenderer,
     ViewUserComponent,
-    PasswordStrengthBarComponent
+    PasswordStrengthBarComponent,
+    ContacttypesComponent,
+    AddcontacttypesComponent,
+    GetcollateralsComponent,
+    AddcollateralsComponent,
+    GetassociationsComponent,
+    AddassociationsComponent,
+    GetuserstatusComponent,
+    AdduserstatusComponent,
+    AdduserroleComponent,
+    GetuserroleComponent,
+    EdituserroleComponent,
+    EdituserstatusComponent,
+    EditassociationsComponent,
+    EditcollateralsComponent,
+    EditcontacttypesComponent,
+    
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -97,6 +117,21 @@ import { PasswordStrengthBarComponent } from './password-strength-bar/password-s
       { path: 'aduser', component: AdUserComponent },
       { path: 'ngxuser', component: NgxUserComponent },
       { path: 'viewuser', component: ViewUserComponent },
+      { path: 'contacttypes', component: ContacttypesComponent },
+      { path: 'addcontacttypes', component: AddcontacttypesComponent },
+      { path: 'collaterals', component: GetcollateralsComponent },
+      { path: 'addcollaterals', component: AddcollateralsComponent },
+      { path: 'associations', component: GetassociationsComponent },
+      { path: 'addassociations', component: AddassociationsComponent },
+      { path: 'userstatus', component: GetuserstatusComponent },
+      { path: 'adduserstatus', component: AdduserstatusComponent },
+      { path: 'userrole', component: GetuserroleComponent },
+      { path: 'adduserrole', component: AdduserroleComponent },
+      { path: 'editcontacttype', component: EditcontacttypesComponent },
+      { path: 'editcollateral', component: EditcollateralsComponent },
+      { path: 'editassociation', component: EditassociationsComponent },
+      { path: 'edituserstatus', component: EdituserstatusComponent },
+      { path: 'edituserrole', component: EdituserroleComponent },
     ])
   ],
   providers: [AuthService],

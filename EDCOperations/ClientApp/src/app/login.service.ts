@@ -14,8 +14,8 @@ export class LoginService {
   header: any;
   constructor(private http: HttpClient) {
 
-    //this.Url = 'http://localhost:58639/api/';
-    this.Url = 'http://13.68.254.40/EDCWebAPI/api/';
+    this.Url = 'http://localhost:58639/api/';
+   // this.Url = 'http://13.68.254.40/EDCWebAPI/api/';
     const headerSettings: { [name: string]: string | string[]; } = {};
     this.header = new HttpHeaders(headerSettings);
   }

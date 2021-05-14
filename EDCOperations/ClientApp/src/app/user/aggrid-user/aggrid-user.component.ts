@@ -257,7 +257,8 @@ export class AggridUserComponent implements OnInit {
             //alert(`${field} was clicked`);
 
           },
-          label: 'View'
+          label: 'View',
+          screen:'EDC Users'
         },
         width: 90,
       }
@@ -295,7 +296,8 @@ export class AggridUserComponent implements OnInit {
             //alert(`${field} was clicked`);
 
           },
-          label: 'Edit'
+          label: 'Edit',
+          screen: 'EDC Users'
         },
         width: 90,
       },
@@ -309,7 +311,8 @@ export class AggridUserComponent implements OnInit {
             //alert(`${field} was clicked`);
           }
           ,
-          label: 'View'
+          label: 'View',
+          screen: 'EDC Users'
         },
         width: 90,
       }
@@ -359,8 +362,8 @@ export class AggridUserComponent implements OnInit {
       //this.api.startEditingCell({
       //  rowIndex: params.rowIndex,
       //  colKey: 'make'
-      localStorage.removeItem("editUserId");
-      localStorage.setItem("editUserId", user.id.toString());
+      localStorage.removeItem("editId");
+      localStorage.setItem("editId", user.id.toString());
       this.router.navigate(['edituser']);
        
     }

@@ -34,12 +34,30 @@ export class BtnCellRenderer implements ICellRendererAngularComp, OnDestroy {
     this.params.clicked(this.params.value);
     localStorage.removeItem("editUserId");
     localStorage.setItem("editUserId", this.params.value);
-    if (this.params.label === "Edit") {
-      this.router.navigate(['edituser']);
+    if (this.params.screen === "EDC Users") {
+      if (this.params.label === "Edit") {
+        this.router.navigate(['edituser']);
+      }
+      else {
+        this.router.navigate(['viewuser']);
+      }
     }
-    else {
-      this.router.navigate(['viewuser']);
+    else  if (this.params.screen === "Contact Types") {
+      this.router.navigate(['editcontacttype']);
     }
+    else if (this.params.screen === "Collaterals") {
+      this.router.navigate(['editcollateral']);
+    }
+    else if (this.params.screen === "Associations") {
+      this.router.navigate(['editassociation']);
+    }
+    else if (this.params.screen === "EDC User Roles") {
+      this.router.navigate(['edituserrole']);
+    }
+    else if (this.params.screen === "User Status") {
+      this.router.navigate(['edituserstatus']);
+    }
+     
   }
 
   ngOnDestroy() {

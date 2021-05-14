@@ -1,0 +1,81 @@
+<div class="col-md-12 user-container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>EDC User Roles</h2>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-block btn-success" style="width:180px" (click)="addUserRole()" *ngIf="isAdmin">Add EDC User Role</button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-block btn-success" style=" width:150px" (click)="onBtExport()">Export to CSV</button>
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-2">
+      <input type="text" id="filter-text-box" [(ngModel)]="searchText" placeholder="Search.." (keyup)="onBtSearch()">
+      <!--<button class="btn btn-block btn-success" style=" width:150px" (click)="onBtSearch()">Search</button>-->
+    </div>
+
+
+
+  </div>
+  <div class="row" style="margin:5px;">
+    <div class="example-header">
+      Page Size:
+      <select (change)="onPageSizeChanged()" id="page-size" [(ngModel)]="pageSize">
+        <option value="10" selected>10</option>
+        <option value="20">20</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+  </div>
+  <!--<div >
+    <label>
+      <button (click)="onBtExport()" style="margin: 5px; font-weight: bold;">
+        Export to Excel
+      </button>
+    </label>
+  </div>-->
+  <div class="row" style="margin-top:10px">
+    <div class="col-md-12">
+      <!--<ag-grid-angular style="width: 100%; height: 300px;"
+                       class="ag-theme-alpine"
+                       [rowData]="users"
+                       [columnDefs]="columnDefs">
+      </ag-grid-angular>-->
+
+
+      <ag-grid-angular style="width: 100%; height: 530px;" #agGrid
+                       class="ag-theme-alpine"
+                       [rowData]="rowData"
+                       [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+                       (gridReady)="onGridReady($event)"
+                       [frameworkComponents]="frameworkComponents" [pagination]="true" [paginationPageSize]="paginationPageSize">
+      </ag-grid-angular>
+      <div style="height: 100%; box-sizing: border-box;">
+        <!--<ag-grid-angular #agGrid
+           style="width: 100%; height: 100%;"
+           id="myGrid"
+           class="ag-theme-alpine"
+           [columnDefs]="columnDefs"
+           [defaultColDef]="defaultColDef"
+           [defaultColGroupDef]="defaultColGroupDef"
+           [columnTypes]="columnTypes"
+           [rowData]="users"
+           ></ag-grid-angular>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
