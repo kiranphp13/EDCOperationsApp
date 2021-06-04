@@ -50,7 +50,7 @@ import { EditassociationsComponent } from './associations/editassociations/edita
 import { EditcollateralsComponent } from './collaterals/editcollaterals/editcollaterals.component';
 import { EditcontacttypesComponent } from './contacttypes/editcontacttypes/editcontacttypes.component';
 
-
+import { AdministrationModule } from './administration/administration.module';
 
 @NgModule({
   declarations: [
@@ -99,6 +99,7 @@ import { EditcontacttypesComponent } from './contacttypes/editcontacttypes/editc
     FormsModule, ReactiveFormsModule,
     AgGridModule.withComponents([BtnCellRenderer]),
     ModalModule, DataTablesModule, NgxDatatableModule,
+    AdministrationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
