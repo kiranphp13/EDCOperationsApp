@@ -1,17 +1,17 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ContactTypeService } from '../services/contact-type.service';
+import { CollateralService } from '../services/collateral.service';
 import { ButtonRendererComponent } from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-contact-types',
-  templateUrl: './contact-types.component.html',
-  styleUrls: ['./contact-types.component.css'],
+  selector: 'app-collaterals',
+  templateUrl: './collaterals.component.html',
+  styleUrls: ['./collaterals.component.css'],
   providers: [DatePipe]
 })
-export class ContactTypesComponent implements OnInit {
+export class CollateralsComponent implements OnInit {
   // @ts-ignore
   @ViewChild('view_record', {}) viewRecordElmRef: ElementRef;
   records;
@@ -26,7 +26,7 @@ export class ContactTypesComponent implements OnInit {
   pageSize = 10;
   _record;
 
-  constructor(private http: HttpClient, private contactTypeService: ContactTypeService, private modalService: NgbModal, private datePipe:DatePipe) {
+  constructor(private http: HttpClient, private collateralService: CollateralService, private modalService: NgbModal, private datePipe:DatePipe) {
 
     this.context = {
       componentParent: this
@@ -43,14 +43,13 @@ export class ContactTypesComponent implements OnInit {
         width: 50
       },
       {
-        field: 'type',
+        field: 'name',
         headerName: 'Name',
         width: 100
       },
       {
         field: 'description',
         headerName: 'Description',
-
       },
       {
         field: 'updatedBy',
@@ -60,19 +59,18 @@ export class ContactTypesComponent implements OnInit {
         field: 'updateDate',
         headerName: 'Last Modified',
         cellRenderer: (params) => {
-          //return params.data.updateDate;
           return this.datePipe.transform( params.data.updateDate,'yyyy-MM-dd  h:mm:ss');
         }
       },
       {
         headerName: 'Action(s)',
-        cellRenderer: 'buttonRenderer',
-        valueGetter: function (params) {
-          return {
-            _id: params.data.id,
-            params: params
-          };
-        },
+        // cellRenderer: 'buttonRenderer',
+        // valueGetter: function (params) {
+        //   return {
+        //     _id: params.data.id,
+        //     params: params
+        //   };
+        // },
       },
     ];
     this.defaultColDef = {
@@ -90,7 +88,7 @@ export class ContactTypesComponent implements OnInit {
     this.gridColumnApi = params.columnApi;
     this.gridApi.sizeColumnsToFit();
 
-    this.contactTypeService.getAll()
+    this.collateralService.getAll()
       .subscribe(data => this.rowData = data);
     /*
     this.http
@@ -102,41 +100,41 @@ export class ContactTypesComponent implements OnInit {
   }
 
 
-  viewRecord(id){
-    this.contactTypeService.getById(id).subscribe((data) => {
-      console.log(data);
-      this._record = data;
-
-      this.modalService.open(this.viewRecordElmRef, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-        this.closeResult = `Closed with: ${result}`;
-      }, (reason) => {
-        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-      });
-    });
-  }
-
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
-  }
+  // viewRecord(id){
+  //   this.contactTypeService.getById(id).subscribe((data) => {
+  //     console.log(data);
+  //     this._record = data;
+  //
+  //     this.modalService.open(this.viewRecordElmRef, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //       this.closeResult = `Closed with: ${result}`;
+  //     }, (reason) => {
+  //       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  //     });
+  //   });
+  // }
+  //
+  // open(content) {
+  //   this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+  //     this.closeResult = `Closed with: ${result}`;
+  //   }, (reason) => {
+  //     this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+  //   });
+  // }
+  //
+  // private getDismissReason(reason: any): string {
+  //   if (reason === ModalDismissReasons.ESC) {
+  //     return 'by pressing ESC';
+  //   } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+  //     return 'by clicking on a backdrop';
+  //   } else {
+  //     return `with: ${reason}`;
+  //   }
+  // }
 
   onBtCSVExport() {
     const params = {
       columnKeys: ['id', 'type', 'description', 'updatedBy', 'updatedAt'],
-      fileName: 'Contact Types'
+      fileName: 'Collaterals'
     };
     this.gridApi.exportDataAsCsv(params);
   }
@@ -149,3 +147,4 @@ export class ContactTypesComponent implements OnInit {
     this.gridApi.setQuickFilter(val);
   }
 }
+

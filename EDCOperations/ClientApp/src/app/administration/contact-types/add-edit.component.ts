@@ -12,6 +12,7 @@ export class AddEditComponent implements OnInit {
   isAddMode!: boolean;
   loading = false;
   submitted = false;
+  loader = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,8 +35,21 @@ export class AddEditComponent implements OnInit {
     });
 
     if (!this.isAddMode) {
+      this.loader = true;
+      // this.contactTypeService.getById(this.id)
+      //   .subscribe(x => this.form.patchValue(x));
+
+      // this.contactTypeService.getById(this.id)
+      //   .subscribe((data) => ({
+      //     this.form.patchValue(data);
+      //   }));
+
       this.contactTypeService.getById(this.id)
-        .subscribe(x => this.form.patchValue(x));
+        .subscribe(data => {
+          this.loader = false;
+          this.form.patchValue(data);
+        });
+
     }
   }
 

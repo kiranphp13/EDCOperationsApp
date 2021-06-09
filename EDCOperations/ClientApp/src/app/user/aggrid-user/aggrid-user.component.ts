@@ -24,11 +24,11 @@ var numberFilterParams = {
   closeOnApply: true
 }
 var dateFilterParams = {
- 
+
   comparator: function (filterLocalDateAtMidnight, cellValue) {
     var date = new Date(cellValue);
     var dateAsString = ((date.getDate() > 9) ? date.getDate() : ('0' + date.getDate())) + '/' + ((date.getMonth() > 8) ? (date.getMonth() + 1) : ('0' + (date.getMonth() + 1))) + '/' + date.getFullYear();
-    
+
     if (dateAsString == null) return -1;
     var dateParts = dateAsString.split('/');
     var cellDate = new Date(
@@ -179,7 +179,7 @@ export class AggridUserComponent implements OnInit {
 
     }
     this.defaultColDef = {
-      resizable: true 
+      resizable: true
     };
     this.pageSize = "10";
 
@@ -196,18 +196,18 @@ export class AggridUserComponent implements OnInit {
         this.users = data;
       });
   }
-  
+
   addUser(): void {
     this.router.navigate(['adduser']);
   };
 
-  
+
   ngOnInit() {
-   
+
     if (localStorage.getItem("currentUser") === null) {
       this.router.navigate(['login'])
     }
-    
+
     this.apiService.getUsers()
       .subscribe(data => {
         this.users = data;
@@ -224,7 +224,7 @@ export class AggridUserComponent implements OnInit {
     //};
   //  this.agGrid.columnApi.setColumnsVisible(['model'], false);
     //let filterInstance = this.gridOptions.api.getFilterInstance("name_col");
-    
+
     if (localStorage.getItem("currentUserRole") !== "Admin") {
       this.isAdmin = false;
       this.columnDefs = [
@@ -248,9 +248,9 @@ export class AggridUserComponent implements OnInit {
         },
       {
         field: 'id',
-        
+
         headerName: '',
-        
+
         cellRenderer: 'btnCellRenderer',
         cellRendererParams: {
           clicked: function (field: any) {
@@ -282,7 +282,7 @@ export class AggridUserComponent implements OnInit {
           cellRenderer: (data) => {
             return dateFormatter(data.value);
           }
-       
+
         },
       {
         field: 'id',
@@ -320,7 +320,7 @@ export class AggridUserComponent implements OnInit {
       ];
     }
 
-  
+
 
 
   }
@@ -342,15 +342,15 @@ export class AggridUserComponent implements OnInit {
     this.gridApi.exportDataAsCsv(params);
   }
 
-    
+
   onBtSearch() {
     //gridOptions.api.setQuickFilter(document.getElementById('filter-text-box').value);
     this.gridApi.setQuickFilter(this.searchText);
 
   }
-    
 
-   
+
+
     onBtnClick1(e) {
       this.rowDataClicked1 = e.rowData;
     }
@@ -365,9 +365,9 @@ export class AggridUserComponent implements OnInit {
       localStorage.removeItem("editId");
       localStorage.setItem("editId", user.id.toString());
       this.router.navigate(['edituser']);
-       
+
     }
-    
+
     //rowData = [
     //  { make: 'Toyota', model: 'Celica', price: 35000 },
     //  { make: 'Ford', model: 'Mondeo', price: 32000 },

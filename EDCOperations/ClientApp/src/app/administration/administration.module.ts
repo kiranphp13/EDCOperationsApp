@@ -10,9 +10,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // ag-grid
 import { AgGridModule } from 'ag-grid-angular';
 import { ButtonRendererComponent } from './contact-types/renderer/button-renderer.component';
+import { CollateralsComponent } from './collaterals/collaterals.component';
+import { AssociationsComponent } from './associations/associations.component';
 
 @NgModule({
-  declarations: [ContactTypesComponent, AddEditComponent, ButtonRendererComponent],
+  declarations: [ContactTypesComponent, AddEditComponent, ButtonRendererComponent, CollateralsComponent, AssociationsComponent],
   imports: [
     AdministrationRoutingModule,
     CommonModule,

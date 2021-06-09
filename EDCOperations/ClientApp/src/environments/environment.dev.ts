@@ -4,6 +4,7 @@
 
 export const environment = {
   production: false,
+  //apiUrl: 'http://localhost:58639/api',
   apiUrl: 'http://52.149.219.250/EDCWebAPI/api'
 
 };
