@@ -4,6 +4,7 @@ import {ContactTypeService} from '../services/contact-type.service';
 import {ButtonRendererComponent} from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-contact-types',
@@ -29,7 +30,8 @@ export class ContactTypesComponent implements OnInit {
     private http: HttpClient,
     private contactTypeService: ContactTypeService,
     private modalService: NgbModal,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    private spinnerService: NgxSpinnerService
   ) {
     this.context = {componentParent: this};
 
@@ -51,22 +53,26 @@ export class ContactTypesComponent implements OnInit {
       {
         field: 'description',
         headerName: 'Description',
+        width: '100'
 
       },
       {
         field: 'updatedBy',
         headerName: 'Updated By',
+        width: '80'
       },
       {
         field: 'updateDate',
         headerName: 'Last Modified',
         cellRenderer: (params) => {
           return this.datePipe.transform(params.data.updateDate, 'yyyy-MM-dd  h:mm:ss');
-        }
+        },
+        width: '100'
       },
       {
         headerName: 'Action(s)',
         cellRenderer: 'buttonRenderer',
+        width: 80,
         valueGetter: function (params) {
           return {
             _id: params.data.id,
@@ -91,11 +97,15 @@ export class ContactTypesComponent implements OnInit {
 
     this.contactTypeService.getAll()
       .subscribe(data => this.rowData = data);
+
+    this.gridApi.setDomLayout('autoHeight');
   }
 
   viewRecord(id) {
+    this.spinnerService.show();
     this.contactTypeService.getById(id).subscribe((data) => {
       console.log(data);
+      this.spinnerService.hide();
       this._record = data;
       this.modalService.open(this.viewRecordElmRef, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;

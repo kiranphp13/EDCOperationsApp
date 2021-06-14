@@ -1,41 +1,46 @@
-<div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>EDC Users</h2>
-    </div>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+  <p style="color: white">Please Wait. </p>
+</ngx-spinner>
+<div fxLayout="row" class="container">
+  <div fxFlex="100">
+    <h4>EDC Users</h4>
   </div>
-  <div class="row">
-    <div class="col-md-6">
-      <span *ngIf="loggedUserRole === 'Admin'"><button class="btn btn-sm btn-success" (click)="addUser()">Add EDC User</button>&nbsp;</span>
-      <button class="btn btn-sm btn-success" (click)="onBtExport()">Export to CSV</button>
-    </div>
-    <div class="col-md-6">
-      <div class="float-right">
-        <div class="form-inline">
-          Page Size:&nbsp;
-          <select class="form-control input-sm" (change)="onPageSizeChanged()" id="page-size" [(ngModel)]="pageSize">
-            <option value="10" selected>10</option>
-            <option value="20">20</option>
-            <option value="50">50</option>
-            <option value="100">100</option>
-          </select> &nbsp;&nbsp;
-          <input type="text" id="filter-text-box" class="form-control" [(ngModel)]="searchText" placeholder="Search.."   (keyup)="onBtSearch()">
-        </div>
+</div>
+<div fxLayout="row" fxLayout.xs="column" class="container">
+  <div fxFlex="66%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+    <button *ngIf="loggedUserRole === 'Admin'" class="btn btn-sm btn-success mr-2" (click)="addUser()">Add EDC User</button>
+    <button class="btn btn-sm btn-success" (click)="onBtExport()">Export to CSV</button>
+  </div>
+  <div fxFlex="34%" fxFlex.sm="100%" fxFlex.xs="100%" fxFlexAlign="end end">
+    <div class="">
+      <div class="form-inline">
+        Page Size:&nbsp;
+        <select class="form-control input-sm" (change)="onPageSizeChanged()" id="page-size" [(ngModel)]="pageSize">
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select> &nbsp;&nbsp;
+        <input type="text" id="filter-text-box" class="form-control" [(ngModel)]="searchText" placeholder="Search.."
+               (keyup)="onBtSearch()">
       </div>
     </div>
   </div>
-  <div class="row" style="margin-top:10px;">
-    <div class="col-md-12">
-      <ag-grid-angular style="width: 100%; height: 35vw" #agGrid
-                       class="ag-theme-alpine"
-                       [rowData]="users"
-                       [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
-                       (gridReady)="onGridReady($event)"
-                       [frameworkComponents]="frameworkComponents" [pagination]="true" [paginationPageSize]="paginationPageSize" [context]="context">
-      </ag-grid-angular>
-    </div>
+</div>
+<div fxLayout="row" fxLayout.xs="column" class="container mt-2">
+  <div fxFlex="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+    <ag-grid-angular
+      style="width: 100%;" #agGrid
+      class="ag-theme-balham"
+      [rowData]="users"
+      [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
+      (gridReady)="onGridReady($event)"
+      [frameworkComponents]="frameworkComponents" [pagination]="true"
+      [paginationPageSize]="paginationPageSize" [context]="context">
+    </ag-grid-angular>
   </div>
 </div>
+<!-- View modal starts here -->
 <ng-template #view_record let-modal>
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title"><i class="fa fa-user"></i>  {{_record?.fullName}}</h4>
@@ -45,21 +50,18 @@
   </div>
   <div class="modal-body">
     <table class="table table-striped">
-    <tbody>
-    <tr>
-      <td>Username</td>
-      <td>: {{_record?.userName}}
-        <span *ngIf="_record?.status =='Active'" class="badge badge-success">{{_record?.status}}</span>
-        <span *ngIf="_record?.status =='Inactive'" class="badge badge-dark">{{_record?.status}}</span>
-
-
-      </td>
-    </tr>
-
-    <tr>
-      <td>Role</td>
-      <td>: {{_record?.role}}</td>
-    </tr>
+      <tbody>
+      <tr>
+        <td>Username</td>
+        <td>: {{_record?.userName}}
+          <span *ngIf="_record?.status =='Active'" class="badge badge-success">{{_record?.status}}</span>
+          <span *ngIf="_record?.status =='Inactive'" class="badge badge-dark">{{_record?.status}}</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Role</td>
+        <td>: {{_record?.role}}</td>
+      </tr>
       <tr>
         <td>Name</td>
         <td>: {{_record?.fullName}}</td>
@@ -80,16 +82,13 @@
         <td>Date</td>
         <td>: {{_record?.createdDate | date :'y-MM-dd hh:mm:ss'}}</td>
       </tr>
-
-
-    </tbody>
-
+      </tbody>
     </table>
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
   </div>
 </ng-template>
-
+<!-- View modal ends here -->
 
 

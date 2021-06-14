@@ -1,12 +1,13 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>Update User</h2>
-      <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="card">
+      <div class="card-header font-weight-bold">Update User</div>
+      <div class="card-body">
         <div class="form-row">
           <div class="form-group col">
             <label>Full Name<span style="color:red">*</span> :</label>
-            <input type="text" formControlName="fullName" placeholder="Full Name" name="fullName" class="form-control" id="fullName">
+            <input type="text" formControlName="fullName" placeholder="Full Name" name="fullName"
+                   class="form-control" id="fullName">
           </div>
         </div>
         <div class="form-row">
@@ -23,54 +24,64 @@
               <option value="Inactive">Inactive</option>
             </select>-->
             <select formControlName="statusId" class="form-control" placeholder="Status" name="status" required>
-              <option *ngFor="let statusItem of status" [value]="statusItem.statusId">{{statusItem.statusName}}</option>
+              <option *ngFor="let statusItem of status"
+                      [value]="statusItem.statusId">{{statusItem.statusName}}</option>
             </select>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
             <label>User Name<span style="color:red">*</span> :</label>
-            <input type="text" formControlName="userName" placeholder="User Name" name="userName" class="form-control" id="userName">
+            <input type="text" formControlName="userName" placeholder="User Name" name="userName"
+                   class="form-control" id="userName">
           </div>
           <div class="form-group col">
             <br>
             <label for="username">Password :</label>
-            <button (click)="openModal('modalChangePassword') " class="btn btn-info btn-sm" style="margin-left:10px">Change Password</button>
-                          <jw-modal id="modalChangePassword">
-                            <h1>Change Password</h1>
-                            <div class="row">
-                              <div class="col-1">
+            <button (click)="openModal('modalChangePassword') " class="btn btn-info btn-sm"
+                    style="margin-left:10px">Change Password
+            </button>
+            <jw-modal id="modalChangePassword">
+              <h1>Change Password</h1>
+              <div class="row">
+                <div class="col-1">
 
-                              </div>
-                              <div class="col-10" align="center">
-                                <div class="form-group">
-                                  <!--<label for="password">Pasword:</label>-->
-                                  <input type="text" formControlName="password" placeholder="Password" name="password" class="form-control" id="password" #password />
-                                  <app-password-strength-bar [passwordToCheck]="password.value" [barLabel]="barLabel">
-                                  </app-password-strength-bar>
-                                </div>
-                              </div>
-                              <div class="col-1">
+                </div>
+                <div class="col-10" align="center">
+                  <div class="form-group">
+                    <!--<label for="password">Pasword:</label>-->
+                    <input type="text" formControlName="password" placeholder="Password" name="password"
+                           class="form-control" id="password" #password/>
+                    <app-password-strength-bar [passwordToCheck]="password.value" [barLabel]="barLabel">
+                    </app-password-strength-bar>
+                  </div>
+                </div>
+                <div class="col-1">
 
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-6" align="right">
-                                <button (click)="closeModal('modalChangePassword','Ok');" style="width:100px" class="btn btn-block btn-success">Ok</button>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-6" align="right">
+                  <button (click)="closeModal('modalChangePassword','Ok');" style="width:100px"
+                          class="btn btn-block btn-success">Ok
+                  </button>
 
-                              </div>
-                              <div class="col-6 text-left">
-                                <button class="btn btn-danger" style="width:100px" (click)="closeModal('modalChangePassword','Cancel');">Cancel</button>
+                </div>
+                <div class="col-6 text-left">
+                  <button class="btn btn-danger" style="width:100px"
+                          (click)="closeModal('modalChangePassword','Cancel');">Cancel
+                  </button>
 
-                              </div>
-                            </div>
-                          </jw-modal>
+                </div>
+              </div>
+            </jw-modal>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col">
             <label for="username">Email<span style="color:red">*</span> :</label>
-            <input type="text" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+            <input type="text" formControlName="email" placeholder="Email" name="email" class="form-control"
+                   id="email">
           </div>
           <div class="form-group col">
             <label for="username">Phone<span style="color:red">*</span> :</label>
@@ -88,15 +99,16 @@
             {{errorMessage}}
           </p>
         </div>
-        <div class="row">
-          <div class="col-6">
-            <button type="submit" class="btn btn-success" style="width:100px" (click)="onSubmit()">Submit</button>
-            &nbsp;<button class="btn btn-danger" style="width:100px" (click)="onCancel()">Cancel</button>
-          </div>
-        </div>
-      </form>
+
+      </div>
+
+
+      <div class="card-footer">
+        <button type="submit" class="btn btn-sm btn-success" style="width:100px" (click)="onSubmit()">Submit</button>
+        &nbsp;<button class="btn btn-sm btn-danger" style="width:100px" (click)="onCancel()">Cancel</button>
+      </div>
     </div>
-  </div>
+  </form>
 </div>
 
 

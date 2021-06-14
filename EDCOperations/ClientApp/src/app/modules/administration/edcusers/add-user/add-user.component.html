@@ -1,12 +1,14 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-8">
-      <h2>Create User</h2>
-      <form [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="card">
+      <div class="card-header font-weight-bold">Create User</div>
+      <div class="card-body">
+
         <div class="form-row">
           <div class="form-group col">
             <label>Full Name<span style="color:red">*</span> :</label>
-            <input type="text" formControlName="fullName" placeholder="Full Name" name="fullName" class="form-control" id="fullName" required>
+            <input type="text" formControlName="fullName" placeholder="Full Name" name="fullName" class="form-control"
+                   id="fullName" required>
           </div>
         </div>
         <div class="form-row">
@@ -26,11 +28,13 @@
         <div class="form-row">
           <div class="form-group col">
             <label>User Name<span style="color:red">*</span> :</label>
-            <input type="text" formControlName="userName" placeholder="User Name" name="userName" class="form-control" id="userName" required>
+            <input type="text" formControlName="userName" placeholder="User Name" name="userName" class="form-control"
+                   id="userName" required>
           </div>
           <div class="form-group col">
             <label>Password<span style="color:red">*</span> :</label>
-            <input type="password" formControlName="password" placeholder="Password" name="password" class="form-control" id="password" #password>
+            <input type="password" formControlName="password" placeholder="Password" name="password"
+                   class="form-control" id="password" #password>
             <app-password-strength-bar [passwordToCheck]="password.value" [barLabel]="barLabel">
             </app-password-strength-bar>
           </div>
@@ -38,7 +42,8 @@
         <div class="form-row">
           <div class="form-group col">
             <label>Email<span style="color:red">*</span> :</label>
-            <input type="text" formControlName="email" placeholder="Email" name="email" class="form-control" id="email" required>
+            <input type="text" formControlName="email" placeholder="Email" name="email" class="form-control" id="email"
+                   required>
           </div>
           <div class="form-group col">
             <label>Phone<span style="color:red">*</span> :</label>
@@ -56,13 +61,18 @@
             {{errorMessage}}
           </p>
         </div>
-        <div class="form-group">
-          <button type="submit" class="btn btn-success" (click)="onSubmit()">Submit</button>
+
+
+      </div>
+      <div class="card-footer">
+        <div class="">
+          <button type="submit" class="btn btn-sm btn-success" (click)="onSubmit()">Submit</button>
           &nbsp;<button class="btn btn-danger" (click)="onCancel()">Cancel</button>
         </div>
-      </form>
+      </div>
     </div>
-  </div>
+  </form>
+
 </div>
 
 

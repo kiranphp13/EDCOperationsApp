@@ -6,6 +6,7 @@ import {AgGridAngular} from 'ag-grid-angular';
 import {ButtonRendererComponent} from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {UserService} from 'src/app/shared/user.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-edcusers',
@@ -35,7 +36,13 @@ export class EdcusersComponent implements OnInit {
   _record;
   loggedUserRole;
 
-  constructor(private router: Router, private apiService: AuthService, private modalService: NgbModal, private userService: UserService) {
+  constructor(
+    private router: Router,
+    private apiService: AuthService,
+    private modalService: NgbModal,
+    private userService: UserService,
+    private spinnerService: NgxSpinnerService
+  ) {
     this.context = {
       componentParent: this
     };
@@ -60,6 +67,9 @@ export class EdcusersComponent implements OnInit {
       .subscribe(data => {
         this.users = data;
       });
+
+    this.gridApi.setDomLayout('autoHeight');
+    // this.gridApi.sizeColumnsToFit();
   }
 
   addUser(): void {
@@ -79,11 +89,11 @@ export class EdcusersComponent implements OnInit {
       {field: 'userName', sortable: true, filter: true, width: '120', filterParams: dateFilterParams},
       {field: 'email', sortable: true, filter: true, filterParams: dateFilterParams},
       {field: 'phone', sortable: true, filter: true, width: '120', filterParams: dateFilterParams},
-      // {field: 'address', sortable: true, filter: true, width: '120', filterParams: dateFilterParams},
+      {field: 'address', sortable: true, filter: true, width: '120', filterParams: dateFilterParams},
       {field: 'role', sortable: true, filter: true, width: '80', filterParams: dateFilterParams},
       {field: 'status', sortable: true, filter: true, width: '80', filterParams: dateFilterParams},
       {
-        field: 'createdDate', sortable: true, width: '150', filter: 'agDateColumnFilter', filterParams: dateFilterParams,
+        field: 'createdDate', sortable: true, width: '100', filter: 'agDateColumnFilter', filterParams: dateFilterParams,
         cellRenderer: (data) => {
           return dateFormatter(data.value);
         }
@@ -141,8 +151,10 @@ export class EdcusersComponent implements OnInit {
   }
 
   viewRecord(id) {
+    this.spinnerService.show();
     this.apiService.getUser(id)
       .subscribe(data => {
+        this.spinnerService.hide();
         this._record = data;
         this.modalService.open(this.viewRecordElmRef, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
           this.closeResult = `Closed with: ${result}`;

@@ -18,7 +18,8 @@ import {AddUserComponent} from './edcusers/add-user/add-user.component';
 import {EditUserComponent} from './edcusers/edit-user/edit-user.component';
 import {SharedModule} from 'src/app/shared/shared.module';
 import {ModalModule} from 'src/app/_modal';
-
+import {FlexLayoutModule} from '@angular/flex-layout';
+import {NgxSpinnerModule} from 'ngx-spinner';
 
 @NgModule({
   declarations: [ContactTypesComponent,
@@ -38,7 +39,9 @@ import {ModalModule} from 'src/app/_modal';
     AgGridModule.withComponents([ButtonRendererComponent, EDCUsersButtonRendererComponent]),
     NgbModule,
     SharedModule,
-    ModalModule
+    ModalModule,
+    FlexLayoutModule,
+    NgxSpinnerModule
   ]
 })
 export class AdministrationModule {

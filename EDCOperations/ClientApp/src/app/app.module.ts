@@ -21,6 +21,8 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from './shared/shared.module';
 import {AdministrationModule} from './modules/administration/administration.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import {AdministrationModule} from './modules/administration/administration.modu
     ResetPasswordComponent,
   ],
   imports: [
+    NgxSpinnerModule,
+    FlexLayoutModule,
     BrowserModule.withServerTransition({appId: 'ng-cli-universal'}),
     HttpClientModule,
     FormsModule, ReactiveFormsModule,

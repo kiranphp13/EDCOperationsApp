@@ -4,6 +4,7 @@ import {AbstractControlOptions, FormBuilder, FormGroup, Validators} from '@angul
 import {first} from 'rxjs/operators';
 import {ContactTypeService} from '../services/contact-type.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({templateUrl: 'add-edit.component.html'})
 export class AddEditComponent implements OnInit {
@@ -18,7 +19,8 @@ export class AddEditComponent implements OnInit {
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private contactTypeService: ContactTypeService
+    private contactTypeService: ContactTypeService,
+    private spinnerService: NgxSpinnerService
   ) {
   }
 
@@ -35,7 +37,7 @@ export class AddEditComponent implements OnInit {
     });
 
     if (!this.isAddMode) {
-      this.loader = true;
+      this.spinnerService.show();
       // this.contactTypeService.getById(this.id)
       //   .subscribe(x => this.form.patchValue(x));
 
@@ -46,7 +48,7 @@ export class AddEditComponent implements OnInit {
 
       this.contactTypeService.getById(this.id)
         .subscribe(data => {
-          this.loader = false;
+          this.spinnerService.hide();
           this.form.patchValue(data);
         });
 
