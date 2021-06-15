@@ -4,6 +4,7 @@ import {ButtonRendererComponent} from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {UserService} from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-contact-types',
@@ -24,13 +25,16 @@ export class ContactTypesComponent implements OnInit {
   context: any;
   pageSize = 10;
   _record;
+  loggedUserRole;
 
   constructor(
     private contactTypeService: ContactTypeService,
     private modalService: NgbModal,
     private datePipe: DatePipe,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
+    private userService: UserService
   ) {
+    this.loggedUserRole = this.userService.getloggedUserRole();
     this.context = {componentParent: this};
 
     this.frameworkComponents = {

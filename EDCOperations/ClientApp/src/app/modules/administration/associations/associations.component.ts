@@ -1,9 +1,10 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AssociationService } from '../services/association.service';
-import { ButtonRendererComponent } from './renderer/button-renderer.component';
+import {Component, OnInit, ElementRef, ViewChild} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {AssociationService} from '../services/association.service';
+import {ButtonRendererComponent} from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
-import { DatePipe } from '@angular/common';
+import {DatePipe} from '@angular/common';
+import {UserService} from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-associations',
@@ -25,9 +26,16 @@ export class AssociationsComponent implements OnInit {
   context: any;
   pageSize = 10;
   _record;
+  loggedUserRole;
 
-  constructor(private http: HttpClient, private associationService: AssociationService, private modalService: NgbModal, private datePipe:DatePipe) {
+  constructor(private http: HttpClient,
+              private associationService: AssociationService,
+              private modalService: NgbModal,
+              private datePipe: DatePipe,
+              private userService: UserService
+  ) {
 
+    this.loggedUserRole = this.userService.getloggedUserRole();
     this.context = {
       componentParent: this
     };
@@ -59,7 +67,7 @@ export class AssociationsComponent implements OnInit {
         field: 'updateDate',
         headerName: 'Last Modified',
         cellRenderer: (params) => {
-          return this.datePipe.transform( params.data.updateDate,'yyyy-MM-dd  h:mm:ss');
+          return this.datePipe.transform(params.data.updateDate, 'yyyy-MM-dd  h:mm:ss');
         }
       },
       {
@@ -101,7 +109,7 @@ export class AssociationsComponent implements OnInit {
   }
 
 
-  viewRecord(id){
+  viewRecord(id) {
     this.associationService.getById(id).subscribe((data) => {
       console.log(data);
       this._record = data;

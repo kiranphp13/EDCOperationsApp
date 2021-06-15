@@ -4,6 +4,8 @@ import { UserStatusService } from '../services/user-status.service';
 import { ButtonRendererComponent } from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
+import {UserService} from 'src/app/shared/user.service';
+
 
 @Component({
   selector: 'app-user-statuses',
@@ -25,8 +27,16 @@ export class UserStatusesComponent implements OnInit {
   context: any;
   pageSize = 10;
   _record;
+  loggedUserRole;
 
-  constructor(private http: HttpClient, private userStatusService: UserStatusService, private modalService: NgbModal, private datePipe:DatePipe) {
+  constructor(
+    private http: HttpClient,
+    private userStatusService: UserStatusService,
+    private modalService: NgbModal,
+    private datePipe:DatePipe,
+    private userService: UserService
+    ) {
+    this.loggedUserRole = this.userService.getloggedUserRole();
 
     this.context = {
       componentParent: this
