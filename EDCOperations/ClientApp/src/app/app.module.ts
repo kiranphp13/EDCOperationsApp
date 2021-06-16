@@ -21,6 +21,13 @@ import {NgxDatatableModule} from '@swimlane/ngx-datatable';
 import {CommonModule} from '@angular/common';
 import {SharedModule} from './shared/shared.module';
 import {AdministrationModule} from './modules/administration/administration.module';
+import {TrainingModule} from './modules/training/training.module';
+
+import {MarketingModule} from './modules/marketing/marketing.module';
+import {OrderProcessingModule} from './modules/order-processing/order-processing.module';
+import {ContactsModule} from './modules/contacts/contacts.module';
+
+
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -46,17 +53,24 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule, ReactiveFormsModule,
     ModalModule, DataTablesModule, NgxDatatableModule,
     AdministrationModule,
+    TrainingModule,
+    MarketingModule,
+    OrderProcessingModule,
+    ContactsModule,
+
     SharedModule,
     // TODO : Move below components to Feature Module (PagesModule)
     RouterModule.forRoot([
-      {path: '', component: LoginComponent, pathMatch: 'full'},
+      // {path: '', component: LoginComponent, pathMatch: 'full'},
+
       {path: 'login', component: LoginComponent},
       {path: 'register', component: RegisterComponent},
       {path: 'dashboard', component: DashboardComponent},
       {path: 'profile', component: ProfileComponent},
       {path: 'notauthorized', component: NotauthorizedComponent},
       {path: 'forgotpassword', component: ForgotPasswordComponent},
-      {path: 'resetpassword', component: ResetPasswordComponent}
+      {path: 'resetpassword', component: ResetPasswordComponent},
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
     ])
   ],
   providers: [AuthService],

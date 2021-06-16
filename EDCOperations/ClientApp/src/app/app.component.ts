@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Role } from './models/role';
 import { AuthService } from './services/auth.service';
+import { UserService } from 'src/app/shared/user.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,10 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'app';
-  constructor(private router: Router, private authService: AuthService) { }
+  loggedUserRole = null;
+  constructor(private router: Router, private authService: AuthService, private userService: UserService) {
+    this.loggedUserRole = this.userService.getloggedUserRole();
+  }
   //get isAuthorized() {
   //  return this.authService.isAuthorized();
   //}

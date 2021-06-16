@@ -69,7 +69,7 @@ export class EdcusersComponent implements OnInit {
       });
 
     this.gridApi.setDomLayout('autoHeight');
-    // this.gridApi.sizeColumnsToFit();
+    this.gridApi.sizeColumnsToFit();
   }
 
   addUser(): void {
@@ -82,18 +82,18 @@ export class EdcusersComponent implements OnInit {
 
   ngOnInit() {
     this.columnDefs = [{
-      field: 'id', width: '80', sortable: true, filter: 'agNumberColumnFilter',
+      field: 'id', sortable: true, width: 80, filter: 'agNumberColumnFilter',
       filterParams: numberFilterParams
     },
-      {field: 'fullName', sortable: true, filter: true, width: '140', filterParams: dateFilterParams},
-      {field: 'userName', sortable: true, filter: true, width: '120', filterParams: dateFilterParams},
+      {field: 'fullName', sortable: true, filter: true, filterParams: dateFilterParams},
+      {field: 'userName', sortable: true, filter: true, filterParams: dateFilterParams},
       {field: 'email', sortable: true, filter: true, filterParams: dateFilterParams},
-      {field: 'phone', sortable: true, filter: true, width: '120', filterParams: dateFilterParams},
-      {field: 'address', sortable: true, filter: true, width: '120', filterParams: dateFilterParams},
-      {field: 'role', sortable: true, filter: true, width: '80', filterParams: dateFilterParams},
-      {field: 'status', sortable: true, filter: true, width: '80', filterParams: dateFilterParams},
+      {field: 'phone', sortable: true, filter: true, filterParams: dateFilterParams},
+      {field: 'address', sortable: true, filter: true, filterParams: dateFilterParams},
+      {field: 'role', sortable: true, width: 100, filter: true, filterParams: dateFilterParams},
+      {field: 'status', sortable: true, width: 100, filter: true, filterParams: dateFilterParams},
       {
-        field: 'createdDate', sortable: true, width: '100', filter: 'agDateColumnFilter', filterParams: dateFilterParams,
+        field: 'createdDate', sortable: true, filter: 'agDateColumnFilter', filterParams: dateFilterParams,
         cellRenderer: (data) => {
           return dateFormatter(data.value);
         }

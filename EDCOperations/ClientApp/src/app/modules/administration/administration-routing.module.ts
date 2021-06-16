@@ -26,6 +26,9 @@ import {AddEditComponent as UserRoleAddEditComponent} from './user-roles/add-edi
 import {UserStatusesComponent} from './user-statuses/user-statuses.component';
 import {AddEditComponent as UserStatusAddEditComponent} from './user-statuses/add-edit.component';
 
+import {SourceComponent} from './source/source.component';
+import {ContactCategoryComponent} from './contact-category/contact-category.component';
+
 const routes: Routes = [
   {path: 'administration/edc-users', component: EdcusersComponent},
   {path: 'administration/edc-users/add', component: AddUserComponent},
@@ -49,7 +52,10 @@ const routes: Routes = [
 
   {path: 'administration/user-statuses', component: UserStatusesComponent},
   {path: 'administration/user-statuses/add', component: UserStatusAddEditComponent},
-  {path: 'administration/user-statuses/edit/:id', component: UserStatusAddEditComponent}
+  {path: 'administration/user-statuses/edit/:id', component: UserStatusAddEditComponent},
+
+  {path: 'administration/source', component: SourceComponent},
+  {path: 'administration/contact-category', component: ContactCategoryComponent},
 
 ];
 

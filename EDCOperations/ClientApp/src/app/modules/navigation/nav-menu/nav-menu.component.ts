@@ -49,8 +49,13 @@ document.addEventListener('DOMContentLoaded', function () {
 export class NavMenuComponent {
   isExpanded = false;
   username = '';
+  loggedUserRole;
 
   constructor(private router: Router, private loginService: LoginService, private authService: AuthService, private userService: UserService) {
+    this.loggedUserRole = this.userService.getloggedUserRole();
+    if(this.loggedUserRole === null || this.loggedUserRole.length === 0 || this.loggedUserRole === undefined){
+      this.router.navigate(['/login']);
+    }
   }
 
   collapse() {

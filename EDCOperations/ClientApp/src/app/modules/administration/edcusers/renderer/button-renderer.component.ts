@@ -5,8 +5,8 @@ import {ICellRendererParams, IAfterGuiAttachedParams} from 'ag-grid-community';
 @Component({
   selector: 'app-c-type-button-renderer',
   template: `
-    <button *ngIf="loggedUserRole ==='Admin'" class="btn btn-sm btn-link" [routerLink]="['/administration/edc-users/edit', _id]">Edit</button>
-    <button class="btn btn-sm btn-link" (click)="vRecord()">View</button>
+    <a *ngIf="loggedUserRole ==='Admin'" class="mr-2" [routerLink]="['/administration/edc-users/edit', _id]">Edit</a>
+    <a class="" href="javascript: void(0);" (click)="vRecord()">View</a>
   `
 })
 

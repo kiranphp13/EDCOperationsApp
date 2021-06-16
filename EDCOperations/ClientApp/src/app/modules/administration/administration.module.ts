@@ -43,6 +43,8 @@ import {ButtonRendererComponent as UserRoleButtonRendererComponent} from './user
 import {UserStatusesComponent} from './user-statuses/user-statuses.component';
 import {AddEditComponent as UserStatusAddEditComponent} from './user-statuses/add-edit.component';
 import {ButtonRendererComponent as UserStatusButtonRendererComponent} from './user-statuses/renderer/button-renderer.component';
+import { SourceComponent } from './source/source.component';
+import { ContactCategoryComponent } from './contact-category/contact-category.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import {ButtonRendererComponent as UserStatusButtonRendererComponent} from './us
     UserRoleButtonRendererComponent,
     UserStatusesComponent,
     UserStatusAddEditComponent,
-    UserStatusButtonRendererComponent
+    UserStatusButtonRendererComponent,
+    SourceComponent,
+    ContactCategoryComponent
   ],
   imports: [
     AdministrationRoutingModule,

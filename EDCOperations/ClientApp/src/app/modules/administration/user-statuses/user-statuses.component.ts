@@ -5,7 +5,7 @@ import { ButtonRendererComponent } from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
 import {UserService} from 'src/app/shared/user.service';
-
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-statuses',
@@ -34,7 +34,8 @@ export class UserStatusesComponent implements OnInit {
     private userStatusService: UserStatusService,
     private modalService: NgbModal,
     private datePipe:DatePipe,
-    private userService: UserService
+    private userService: UserService,
+    private spinnerService: NgxSpinnerService
     ) {
     this.loggedUserRole = this.userService.getloggedUserRole();
 
@@ -108,10 +109,11 @@ export class UserStatusesComponent implements OnInit {
 
 
   viewRecord(id){
+    this.spinnerService.show();
     this.userStatusService.getById(id).subscribe((data) => {
       console.log(data);
       this._record = data;
-
+      this.spinnerService.hide();
       this.modalService.open(this.viewRecordElmRef, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {

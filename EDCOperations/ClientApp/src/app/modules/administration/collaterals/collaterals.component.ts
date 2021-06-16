@@ -75,6 +75,7 @@ export class CollateralsComponent implements OnInit {
       {
         headerName: 'Action(s)',
         cellRenderer: 'buttonRenderer',
+        width: 100,
         valueGetter: function (params) {
           return {
             _id: params.data.id,
@@ -102,6 +103,7 @@ export class CollateralsComponent implements OnInit {
       .subscribe(data => this.rowData = data);
 
     this.gridApi.setDomLayout('autoHeight');
+    this.gridApi.sizeColumnsToFit();
     /*
     this.http
       .get('http://localhost:58639/api/ContactType/GetPosts')

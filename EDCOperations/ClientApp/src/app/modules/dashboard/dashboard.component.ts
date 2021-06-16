@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+
+  }
 
   ngOnInit() {
+    //window.location.reload();
     //this.UserForm = this.formbulider.group({
     //  UserName: ['', [Validators.required]],
     //  LoginName: ['', [Validators.required]],
@@ -18,11 +21,10 @@ export class DashboardComponent implements OnInit {
     //  Email: ['', [Validators.required]],
     //  ContactNo: ['', [Validators.required]],
     //  Address: ['', [Validators.required]],
-    //}); 
+    //});
     if (localStorage.getItem("currentUser") === null) {
       this.router.navigate(['login'])
     }
-
   }
 
 }

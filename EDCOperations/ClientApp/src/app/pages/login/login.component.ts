@@ -38,7 +38,13 @@ export class LoginComponent implements OnInit {
       data => {
         if (data.Status === 'Success') {
           this.userService.storeUserData(data);
-          this.router.navigate(['dashboard']);
+          // this.router.navigate(['dashboard']);
+
+          this.router.navigate(['dashboard'])
+            .then(() => {
+              window.location.reload();
+            });
+
         } else {
           this.errorMessage = data.Message;
         }

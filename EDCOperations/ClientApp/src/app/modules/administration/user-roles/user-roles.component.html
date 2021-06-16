@@ -1,75 +1,77 @@
 <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
   <p style="color: white">Please Wait. </p>
 </ngx-spinner>
-
-<div fxLayout="row" class="container">
-  <div fxFlex="100">
-    <h4>User Roles</h4>
-  </div>
-</div>
-<div fxLayout="row" fxLayout.xs="column" class="container">
-  <div fxFlex="66%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.xs="100%">
-    <button *ngIf="loggedUserRole === 'Admin'" class="btn btn-sm btn-success mr-2" [routerLink]="['/administration/user-roles/add']">Add</button>
-    <button class="btn btn-sm btn-success" (click)="onBtCSVExport()">Export</button>
-  </div>
-  <div fxFlex="34%" fxFlex.sm="100%" fxFlex.xs="100%" fxFlexAlign="end end">
-    <div class="form-inline">
-      Page Size:&nbsp;
-      <select class="form-control input-sm" (change)="onPageSizeChanged()" id="page-size" [(ngModel)]="pageSize">
-        <option value="10" selected>10</option>
-        <option value="20">20</option>
-        <option value="50">50</option>
-        <option value="100">100</option>
-      </select> &nbsp;&nbsp;
-      <input type="text" class="form-control input-sm" placeholder="Search.." (keyup)="searchRecords(searchKey.value)"
-             #searchKey>
+<div class="mx-4">
+  <div fxLayout="row" class="">
+    <div fxFlex="100">
+      <h4>EDC User Roles</h4>
     </div>
   </div>
+  <div fxLayout="row" fxLayout.xs="column" class="">
+    <div fxFlex="66%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.xs="100%">
+      <button *ngIf="loggedUserRole === 'Admin'" class="btn btn-sm btn-success mr-2" [routerLink]="['/administration/user-roles/add']">Add</button>
+      <button class="btn btn-sm btn-success" (click)="onBtCSVExport()">Export to CSV</button>
+    </div>
+    <div fxFlex="34%" fxFlex.sm="100%" fxFlex.xs="100%" fxFlexAlign="end end">
+      <div class="form-inline">
+        Page Size:&nbsp;
+        <select class="form-control input-sm" (change)="onPageSizeChanged()" id="page-size" [(ngModel)]="pageSize">
+          <option value="10" selected>10</option>
+          <option value="20">20</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+        </select> &nbsp;&nbsp;
+        <input type="text" class="form-control input-sm" placeholder="Search.." (keyup)="searchRecords(searchKey.value)"
+               #searchKey>
+      </div>
+    </div>
+  </div>
+
+  <div fxLayout="row" fxLayout.xs="column" class=" mt-3">
+    <div fxFlex="55%" fxFlex.sm="100%" fxFlex.xs="100%">
+      <ag-grid-angular
+        #agGrid
+        style="width: 100%;"
+        id="myGrid"
+        class="ag-theme-balham"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [rowData]="rowData"
+        [pagination]="true"
+        [paginationPageSize]="10"
+        [frameworkComponents]="frameworkComponents"
+        (gridReady)="onGridReady($event)"
+        [context]="context">
+      </ag-grid-angular>
+    </div>
+  </div>
+  <ng-template #view_record let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">{{_record?.name}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>{{_record?.name}}</td>
+        </tr>
+        <tr>
+          <td>Updated By:</td>
+          <td>{{_record?.updatedBy}}</td>
+        </tr>
+        <tr>
+          <td>Last Modified:</td>
+          <td>{{_record?.updateDate | date :'y-MM-dd hh:mm:ss'}}</td>
+        </tr>
+      </table>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
+    </div>
+  </ng-template>
 </div>
 
-<div fxLayout="row" fxLayout.xs="column" class="container mt-3">
-  <div fxFlex="55%" fxFlex.sm="100%" fxFlex.xs="100%">
-    <ag-grid-angular
-      #agGrid
-      style="width: 100%;"
-      id="myGrid"
-      class="ag-theme-balham"
-      [columnDefs]="columnDefs"
-      [defaultColDef]="defaultColDef"
-      [rowData]="rowData"
-      [pagination]="true"
-      [paginationPageSize]="10"
-      [frameworkComponents]="frameworkComponents"
-      (gridReady)="onGridReady($event)"
-      [context]="context">
-    </ag-grid-angular>
-  </div>
-</div>
-<ng-template #view_record let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">{{_record?.name}}</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <table>
-      <tr>
-        <td>Name:</td>
-        <td>{{_record?.name}}</td>
-      </tr>
-      <tr>
-        <td>Updated By:</td>
-        <td>{{_record?.updatedBy}}</td>
-      </tr>
-      <tr>
-        <td>Last Modified:</td>
-        <td>{{_record?.updateDate | date :'y-MM-dd hh:mm:ss'}}</td>
-      </tr>
-    </table>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Close</button>
-  </div>
-</ng-template>
 

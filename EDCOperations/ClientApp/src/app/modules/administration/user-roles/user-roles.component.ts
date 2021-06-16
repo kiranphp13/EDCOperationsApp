@@ -5,6 +5,7 @@ import {ButtonRendererComponent} from './renderer/button-renderer.component';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import {DatePipe} from '@angular/common';
 import {UserService} from 'src/app/shared/user.service';
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-user-roles',
@@ -33,7 +34,8 @@ export class UserRolesComponent implements OnInit {
     private userRoleService: UserRoleService,
     private modalService: NgbModal,
     private datePipe: DatePipe,
-    private userService: UserService
+    private userService: UserService,
+    private spinnerService: NgxSpinnerService
   ) {
 
     this.loggedUserRole = this.userService.getloggedUserRole();
@@ -96,21 +98,14 @@ export class UserRolesComponent implements OnInit {
     this.userRoleService.getAll()
       .subscribe(data => this.rowData = data);
     this.gridApi.setDomLayout('autoHeight');
-    /*
-    this.http
-      .get('http://localhost:58639/api/ContactType/GetPosts')
-      .subscribe((data) => {
-        this.rowData = data;
-        this.gridApi.sizeColumnsToFit();
-      }); */
   }
 
 
   viewRecord(id) {
+    this.spinnerService.show();
     this.userRoleService.getById(id).subscribe((data) => {
-      console.log(data);
+      this.spinnerService.hide();
       this._record = data;
-
       this.modalService.open(this.viewRecordElmRef, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
         this.closeResult = `Closed with: ${result}`;
       }, (reason) => {
