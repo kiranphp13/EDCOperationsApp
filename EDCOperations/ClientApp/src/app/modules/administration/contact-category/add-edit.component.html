@@ -1,0 +1,56 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">
+    <p style="color: white">Please Wait. </p>
+  </ngx-spinner>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="card">
+            <div class="card-header font-weight-bold"><span *ngIf="isAddMode">Add Contact Category</span>
+              <span *ngIf="!isAddMode">Edit Contact Category</span></div>
+            <div class="card-body">
+              <div class="form-row">
+                <div class="form-group col">
+                  <label>Name<span style="color:red">*</span> :</label>
+                  <input type="text" maxlength="6" formControlName="name" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+                  <small class="text-muted text-small"> Max 6 characters limit</small>
+                  <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">Type Name is required</div>
+  
+                  </div>
+  
+                </div>
+  
+  
+              </div>
+  
+              <div class="form-row">
+                <div class="form-group col">
+                  <label>Description<span style="color:red">*</span> :</label>
+                  <input type="text" maxlength="25" formControlName="description" class="form-control"
+                         [ngClass]="{ 'is-invalid': submitted && f.description.errors }"/>
+                  <small class="text-muted"> Max 25 characters limit</small>
+                  <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                    <div *ngIf="f.description.errors.required">Description is required</div>
+                  </div>
+                </div>
+  
+  
+              </div>
+            </div>
+  
+            <div class="card-footer">
+              <button [disabled]="loading" class="btn btn-sm btn-success mr-2">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
+                Save
+              </button>
+              <a routerLink="/administration/contact-category" class="btn btn-sm btn-danger">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  </div>
+  

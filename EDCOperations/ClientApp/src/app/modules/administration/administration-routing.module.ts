@@ -31,6 +31,7 @@ import {SourceComponent} from './source/source.component';
 import {AddEditComponent as SourceAddEditComponent} from './source/add-edit.component';
 
 import {ContactCategoryComponent} from './contact-category/contact-category.component';
+import {AddEditComponent as ContactCategoryAddEditComponent} from './contact-category/add-edit.component';
 
 
 const routes: Routes = [
@@ -201,7 +202,21 @@ const routes: Routes = [
       roles: ['Admin', 'Editor', 'Reader']
     }
   },
-
+  {
+    path: 'administration/contact-category/add',
+    component: ContactCategoryAddEditComponent,
+    data: {
+      roles: ['Admin']
+    }
+  },
+  {
+    path: 'administration/contact-category/edit/:id',
+    component: ContactCategoryAddEditComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['Admin']
+    }
+  },
 ];
 
 @NgModule({

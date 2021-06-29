@@ -48,6 +48,8 @@ import {ButtonRendererComponent as SourceButtonRendererComponent} from './source
 import {AddEditComponent as SourceAddEditComponent} from './source/add-edit.component';
 
 import { ContactCategoryComponent } from './contact-category/contact-category.component';
+import {ButtonRendererComponent as ContactCategoryRendererComponent} from './contact-category/renderer/button-renderer.component';
+import {AddEditComponent as ContactCategoryAddEditComponent} from './contact-category/add-edit.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { ContactCategoryComponent } from './contact-category/contact-category.co
     SourceComponent,
     SourceButtonRendererComponent,
     SourceAddEditComponent,
-    ContactCategoryComponent
+    ContactCategoryComponent,
+    ContactCategoryAddEditComponent,
+    ContactCategoryRendererComponent
   ],
   imports: [
     AdministrationRoutingModule,
@@ -88,7 +92,8 @@ import { ContactCategoryComponent } from './contact-category/contact-category.co
       AssociationsButtonRendererComponent,
       UserRoleButtonRendererComponent,
       UserStatusButtonRendererComponent,
-      SourceButtonRendererComponent
+      SourceButtonRendererComponent,
+      ContactCategoryRendererComponent
     ]),
     NgbModule,
     SharedModule,
