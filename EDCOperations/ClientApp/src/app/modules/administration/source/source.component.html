@@ -9,7 +9,7 @@
   </div>
   <div fxLayout="row" fxLayout.xs="column" class="">
     <div fxFlex="66%" fxFlex.xs="100%" fxFlex.sm="100%" fxFlex.xs="100%">
-      <button *ngIf="loggedUserRole === 'Admin'" class="btn btn-sm btn-success mr-2" [routerLink]="">Add</button>
+      <button *ngIf="loggedUserRole === 'Admin'" class="btn btn-sm btn-success mr-2" [routerLink]="['/administration/source/add']">Add</button>
       <button class="btn btn-sm btn-success" (click)="onBtCSVExport()">Export to CSV</button>
     </div>
     <div fxFlex="34%" fxFlex.sm="100%" fxFlex.xs="100%" fxFlexAlign="end end">

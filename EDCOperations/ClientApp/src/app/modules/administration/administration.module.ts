@@ -45,6 +45,7 @@ import {AddEditComponent as UserStatusAddEditComponent} from './user-statuses/ad
 import {ButtonRendererComponent as UserStatusButtonRendererComponent} from './user-statuses/renderer/button-renderer.component';
 import { SourceComponent } from './source/source.component';
 import {ButtonRendererComponent as SourceButtonRendererComponent} from './source/renderer/button-renderer.component';
+import {AddEditComponent as SourceAddEditComponent} from './source/add-edit.component';
 
 import { ContactCategoryComponent } from './contact-category/contact-category.component';
 
@@ -71,6 +72,7 @@ import { ContactCategoryComponent } from './contact-category/contact-category.co
     UserStatusButtonRendererComponent,
     SourceComponent,
     SourceButtonRendererComponent,
+    SourceAddEditComponent,
     ContactCategoryComponent
   ],
   imports: [

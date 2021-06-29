@@ -28,7 +28,10 @@ import {UserStatusesComponent} from './user-statuses/user-statuses.component';
 import {AddEditComponent as UserStatusAddEditComponent} from './user-statuses/add-edit.component';
 
 import {SourceComponent} from './source/source.component';
+import {AddEditComponent as SourceAddEditComponent} from './source/add-edit.component';
+
 import {ContactCategoryComponent} from './contact-category/contact-category.component';
+
 
 const routes: Routes = [
   {
@@ -174,6 +177,21 @@ const routes: Routes = [
     component: SourceComponent,
     data: {
       roles: ['Admin', 'Editor', 'Reader']
+    }
+  },
+  {
+    path: 'administration/source/add',
+    component: SourceAddEditComponent,
+    data: {
+      roles: ['Admin']
+    }
+  },
+  {
+    path: 'administration/source/edit/:id',
+    component: SourceAddEditComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['Admin']
     }
   },
   {
