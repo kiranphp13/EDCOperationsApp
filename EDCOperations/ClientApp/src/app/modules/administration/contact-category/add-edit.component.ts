@@ -25,11 +25,11 @@ export class AddEditComponent implements OnInit {
     private router: Router,
     private contactcategoryservice: ContactCategoryService,
     private userService: UserService,
-    private spinnerService: NgxSpinnerService) { 
+    private spinnerService: NgxSpinnerService) {
       this.userService.currentUser.subscribe(x => this.currentUser = x);
     }
 
-  ngOnInit() 
+  ngOnInit()
   {
     this.getContactTypeRecords();
     this.id = this.route.snapshot.params['id'];
@@ -54,7 +54,7 @@ export class AddEditComponent implements OnInit {
     return this.form.controls;
   }
 
-  onSubmit() 
+  onSubmit()
   {
     debugger
     this.submitted = true;
@@ -109,7 +109,6 @@ export class AddEditComponent implements OnInit {
 
   private updateRecord()
    {
-     debugger
     if (this.form.dirty) {
       const body = {
         name: this.form.get('name').value,

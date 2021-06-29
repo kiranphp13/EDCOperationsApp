@@ -5,6 +5,7 @@ import {first} from 'rxjs/operators';
 import { AssociationService } from '../services/association.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {UserService} from 'src/app/shared/user.service';
 
 @Component({templateUrl: 'add-edit.component.html'})
 export class AddEditComponent implements OnInit {
@@ -14,14 +15,17 @@ export class AddEditComponent implements OnInit {
   loading = false;
   submitted = false;
   loader = false;
+  currentUser: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private associationService: AssociationService,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
+    private userService: UserService
   ) {
+    this.userService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit() {
@@ -67,7 +71,7 @@ export class AddEditComponent implements OnInit {
     const body = {
       name: this.form.get('name').value,
       description: this.form.get('description').value,
-      updatedByUserId: localStorage.getItem('currentUserId')
+      updatedByUserId: this.currentUser.id
     };
 
     this.associationService.create(body)
@@ -101,7 +105,7 @@ export class AddEditComponent implements OnInit {
       const body = {
         name: this.form.get('name').value,
         description: this.form.get('description').value,
-        updatedByUserId: localStorage.getItem('currentUserId')
+        updatedByUserId: this.currentUser.id
       };
 
       this.associationService.update(this.id, body)

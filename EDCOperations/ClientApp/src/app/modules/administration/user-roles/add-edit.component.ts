@@ -5,6 +5,7 @@ import {first} from 'rxjs/operators';
 import { UserRoleService } from '../services/user-role.service';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { NgxSpinnerService } from 'ngx-spinner';
+import {UserService} from 'src/app/shared/user.service';
 
 @Component({templateUrl: 'add-edit.component.html'})
 export class AddEditComponent implements OnInit {
@@ -14,14 +15,17 @@ export class AddEditComponent implements OnInit {
   loading = false;
   submitted = false;
   loader = false;
+  currentUser: any;
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
     private userRoleService: UserRoleService,
-    private spinnerService: NgxSpinnerService
+    private spinnerService: NgxSpinnerService,
+    private userService: UserService
   ) {
+    this.userService.currentUser.subscribe(x => this.currentUser = x);
   }
 
   ngOnInit() {
@@ -65,7 +69,7 @@ export class AddEditComponent implements OnInit {
   private createRecord() {
     const body = {
       name: this.form.get('name').value,
-      updatedByUserId: localStorage.getItem('currentUserId')
+      updatedByUserId: this.currentUser.id
     };
 
     this.userRoleService.create(body)
@@ -98,7 +102,7 @@ export class AddEditComponent implements OnInit {
     if (this.form.dirty) {
       const body = {
         name: this.form.get('name').value,
-        updatedByUserId: localStorage.getItem('currentUserId')
+        updatedByUserId: this.currentUser.id
       };
 
       this.userRoleService.update(this.id, body)
