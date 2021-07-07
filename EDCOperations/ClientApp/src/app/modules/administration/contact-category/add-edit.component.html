@@ -12,9 +12,9 @@
               <div class="form-row">
                 <div class="form-group col">
                   <label>Name<span style="color:red">*</span> :</label>
-                  <input type="text" maxlength="6" formControlName="name" class="form-control"
+                  <input type="text" maxlength="8" formControlName="name" class="form-control"
                          [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
-                  <small class="text-muted text-small"> Max 6 characters limit</small>
+                  <small class="text-muted text-small"> Max 8 characters limit</small>
                   <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
                     <div *ngIf="f.name.errors.required">Type Name is required</div>
   
