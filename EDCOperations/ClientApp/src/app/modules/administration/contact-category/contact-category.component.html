@@ -52,7 +52,8 @@
     [columnDefs]="columnDefs" [defaultColDef]="defaultColDef"
     (gridReady)="onGridReady($event)"
     [frameworkComponents]="frameworkComponents" [pagination]="true"
-    [paginationPageSize]="paginationPageSize" [context]="context">
+    [paginationPageSize]="10"
+    [context]="context">
   </ag-grid-angular>
   </div>
 </div>
@@ -84,7 +85,7 @@
           <td>: {{_record?.updateDate | date :'y-MM-dd hh:mm:ss'}}</td>
         </tr>
       </tbody>
-     
+
     </table>
   </div>
   <div class="modal-footer">

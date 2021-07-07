@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="56667d3b-51f1-4b80-b180-17c9769aa12e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/assets/EDC logo_2021Feb01.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/assets/wip.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/assets/wip.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/main-es2015.41da4fd6a59a6c6f608b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/main-es5.41da4fd6a59a6c6f608b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/polyfills-es2015.5b10b8fd823b6392f1fd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/polyfills-es5.8e50a9832860f7cf804a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/runtime-es2015.c5fa8325f89fc516600b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/runtime-es5.c5fa8325f89fc516600b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/scripts.3c9a389f19a1bc782816.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/sort_asc.9326ad44ae4bebdedd14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/sort_asc_disabled.bda51e15154a18257b4f.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/sort_both.9a6486086d09bb38cf66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/sort_desc.1fc418e33fd5a6872902.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/sort_desc_disabled.d7dc10c78f23615d3285.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/styles.4abf0ce8a38288fa2428.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/administration/contact-category/contact-category.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/administration/contact-category/contact-category.component.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1uFQcYhRth6YsUFUwrVJOTlZsgB" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="D:\virtualmachines\synced_folder\dev-projects\edc\frontend\EDCOperations\ClientApp\node_modules\typescript\lib" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56667d3b-51f1-4b80-b180-17c9769aa12e" name="Default Changelist" comment="" />
+      <created>1624258936914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1624258936914</updated>
+      <workItem from="1624258938139" duration="8669000" />
+      <workItem from="1624599174642" duration="25000" />
+      <workItem from="1625666791296" duration="427000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+    <option name="exactExcludedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/main.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/main.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/login/login.component.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/login/login.component.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/register/register.component.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/register/register.component.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/reset-password/reset-password.component.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/reset-password/reset-password.component.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/forgot-password/forgot-password.component.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/pages/forgot-password/forgot-password.component.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/models/user.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/models/user.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/profile/profile.component.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/profile/profile.component.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/administration/contact-types/contact-types.component.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/administration/contact-types/contact-types.component.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/services/login.service.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/services/login.service.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/services/auth.service.spec.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/services/auth.service.spec.js" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/environments/environment.js.map" />
+        <option value="$PROJECT_DIR$/EDCOperations/ClientApp/src/environments/environment.js" />
+      </list>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1624599196785">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="580" y="184" key="FileChooserDialogImpl/0.0.1600.860@0.0.1600.860" timestamp="1624599196785" />
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1624450404196">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="92" y="92" width="1416" height="676" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1600.860@0.0.1600.860" timestamp="1624450404196" />
+  </component>
+</project>
