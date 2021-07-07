@@ -96,6 +96,10 @@
               Administration
             </a>
             <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['administration/edc-users']">EDC Users</a></li>
+              <li><a class="dropdown-item" [routerLink]="['administration/user-roles']">EDC User Roles</a></li>
+              <li><a class="dropdown-item" [routerLink]="['administration/user-statuses']">User Status</a></li>
+              <hr>
               <li><a class="dropdown-item" [routerLink]="['administration/source']">Source</a></li>
               <li><a class="dropdown-item" [routerLink]="['administration/contact-category']">Contact Category</a></li>
               <li><a class="dropdown-item" [routerLink]="['administration/contact-types']">Contact Types</a></li>
@@ -142,7 +146,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" [routerLink]="['administration/source']">Source</a></li>
-              <li><a class="dropdown-item" [routerLink]="['administration/contact-category']">Contact Category</a></li>
+              <!-- <li><a class="dropdown-item" [routerLink]="['administration/contact-category']">Contact Category</a></li> -->
               <li><a class="dropdown-item" [routerLink]="['administration/contact-types']">Contact Types</a></li>
               <li><a class="dropdown-item" [routerLink]="['administration/collaterals']">Collateral</a></li>
               <li><a class="dropdown-item" [routerLink]="['administration/associations']">Associations</a></li>

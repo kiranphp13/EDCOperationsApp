@@ -55,23 +55,26 @@
     </button>
   </div>
   <div class="modal-body">
-    <table>
-      <tr>
-        <td>Name:</td>
-        <td>{{_record?.type}}</td>
-      </tr>
-      <tr>
-        <td>Description:</td>
-        <td>{{_record?.description}}</td>
-      </tr>
-      <tr>
-        <td>Updated By:</td>
-        <td>{{_record?.updatedBy}}</td>
-      </tr>
-      <tr>
-        <td>Last Modified:</td>
-        <td>{{_record?.updateDate | date :'y-MM-dd hh:mm:ss'}}</td>
-      </tr>
+    <table class="table table-striped">
+      <tbody>
+        <tr>
+          <td>Name</td>
+          <td>: {{_record?.type}}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <td>: {{_record?.description}}</td>
+        </tr>
+        <tr>
+          <td>Updated By</td>
+          <td>: {{_record?.updatedBy}}</td>
+        </tr>
+        <tr>
+          <td>Last Modified</td>
+          <td>: {{_record?.updateDate | date :'y-MM-dd hh:mm:ss'}}</td>
+        </tr>
+      </tbody>
+      
     </table>
   </div>
   <div class="modal-footer">

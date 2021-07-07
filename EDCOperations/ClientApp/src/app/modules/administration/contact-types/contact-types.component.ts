@@ -47,27 +47,32 @@ export class ContactTypesComponent implements OnInit {
       {
         field: 'id',
         headerName: '#',
-        width: 50
+        width: 50,
+        filter:true
       },
       {
         field: 'type',
         headerName: 'Name',
-        width: 100
+        width: 100,
+        filter:true
       },
       {
         field: 'description',
         headerName: 'Description',
-        width: '100'
+        width: '100',
+        filter:true
 
       },
       {
         field: 'updatedBy',
         headerName: 'Updated By',
-        width: '80'
+        width: '80',
+        filter:true
       },
       {
         field: 'updateDate',
         headerName: 'Last Modified',
+        filter:true,
         cellRenderer: (params) => {
           return this.datePipe.transform(params.data.updateDate, 'yyyy-MM-dd  h:mm:ss');
         },

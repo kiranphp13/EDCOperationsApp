@@ -45,23 +45,27 @@ export class ContactCategoryComponent implements OnInit {
       {
         field: 'id',
         headerName: '#',
-        width: 50
+        width: 50,
+        filter: true
       },
       {
         field: 'name',
         headerName: 'Name',
-        width: 100
+        width: 100,
+        filter: true
       },
       {
         field: 'description',
         headerName: 'Description',
-        width: '100'
+        width: '100',
+        filter: true
 
       },
       {
         field: 'updatedBy',
         headerName: 'Updated By',
-        width: '80'
+        width: '80',
+        filter: true
       },
       {
         field: 'updateDate',
@@ -69,12 +73,14 @@ export class ContactCategoryComponent implements OnInit {
         cellRenderer: (params) => {
           return this.datePipe.transform(params.data.updateDate, 'yyyy-MM-dd  h:mm:ss');
         },
-        width: '100'
+        width: '100',
+        filter: true
       },
       {
         headerName: 'Action(s)',
         cellRenderer: 'buttonRenderer',
         width: 80,
+        filter: true,
         valueGetter: function (params) {
           return {
             _id: params.data.id,

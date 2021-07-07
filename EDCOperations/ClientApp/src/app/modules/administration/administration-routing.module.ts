@@ -40,7 +40,7 @@ const routes: Routes = [
     component: EdcusersComponent,
     canActivate: [AuthGuard],
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
   {
@@ -87,6 +87,7 @@ const routes: Routes = [
   {
     path: 'administration/collaterals',
     component: CollateralsComponent,
+    canActivate: [AuthGuard],
     data: {
       roles: ['Admin', 'Editor', 'Reader']
     }
@@ -94,8 +95,9 @@ const routes: Routes = [
   {
     path: 'administration/collaterals/add',
     component: CollateralAddEditComponent,
+    canActivate: [AuthGuard],
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
   {
@@ -103,13 +105,14 @@ const routes: Routes = [
     component: CollateralAddEditComponent,
     canActivate: [AuthGuard],
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
 
   {
     path: 'administration/associations',
     component: AssociationsComponent,
+    canActivate: [AuthGuard],
     data: {
       roles: ['Admin', 'Editor', 'Reader']
     }
@@ -117,28 +120,32 @@ const routes: Routes = [
   {
     path: 'administration/associations/add',
     component: AssociationAddEditComponent,
+    canActivate: [AuthGuard],
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
   {
     path: 'administration/associations/edit/:id',
     component: AssociationAddEditComponent,
+    canActivate: [AuthGuard],
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
 
   {
     path: 'administration/user-roles',
     component: UserRolesComponent,
+    canActivate: [AuthGuard],
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
   {
     path: 'administration/user-roles/add',
     component: UserRoleAddEditComponent,
+    canActivate: [AuthGuard],
     data: {
       roles: ['Admin']
     }
@@ -155,7 +162,7 @@ const routes: Routes = [
     path: 'administration/user-statuses',
     component: UserStatusesComponent,
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
   {
@@ -192,7 +199,7 @@ const routes: Routes = [
     component: SourceAddEditComponent,
     canActivate: [AuthGuard],
     data: {
-      roles: ['Admin']
+      roles: ['Admin','Editor']
     }
   },
   {

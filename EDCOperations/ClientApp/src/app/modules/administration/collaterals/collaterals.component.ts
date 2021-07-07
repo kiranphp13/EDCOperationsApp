@@ -52,24 +52,29 @@ export class CollateralsComponent implements OnInit {
       {
         field: 'id',
         headerName: '#',
-        width: 50
+        width: 50,
+        filter:true
       },
       {
         field: 'name',
         headerName: 'Name',
-        width: 100
+        width: 100,
+        filter:true
       },
       {
         field: 'description',
         headerName: 'Description',
+        filter:true
       },
       {
         field: 'updatedBy',
         headerName: 'Updated By',
+        filter:true
       },
       {
         field: 'updateDate',
         headerName: 'Last Modified',
+        filter:true,
         cellRenderer: (params) => {
           return this.datePipe.transform(params.data.updateDate, 'yyyy-MM-dd  h:mm:ss');
         }

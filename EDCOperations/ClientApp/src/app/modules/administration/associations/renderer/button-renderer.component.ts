@@ -6,7 +6,7 @@ import {ICellRendererParams, IAfterGuiAttachedParams} from 'ag-grid-community';
   selector: 'app-collateral-button-renderer',
   template: `
 
-    <span *ngIf="loggedUserRole==='Admin'"><a class="mr-2" [routerLink]="['/administration/associations/edit', _id]">Edit</a>&nbsp;</span>
+    <span *ngIf="loggedUserRole==='Admin'|| loggedUserRole === 'Editor'"><a class="mr-2" [routerLink]="['/administration/associations/edit', _id]">Edit</a>&nbsp;</span>
 
     <a href="javascript: void(0);" class="" (click)="vRecord()">View</a>`
 })
