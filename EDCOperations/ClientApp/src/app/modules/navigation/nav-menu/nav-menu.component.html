@@ -33,9 +33,16 @@
             <a class="nav-link text-dark" [routerLink]="['order-processing']">Order Processing</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link text-dark" [routerLink]="['contacts']">Contacts</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+              Contacts
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" [routerLink]="['prospects']">Prospects</a></li>
+            </ul>
           </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">

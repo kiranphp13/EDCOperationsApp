@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56667d3b-51f1-4b80-b180-17c9769aa12e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/prospects/add-edit.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/prospects/add-edit.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/prospects/renderer/button-renderer.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/services/prospect.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/main-es2015.e959e1f6bcb3eda750ae.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/dist/main-es5.e959e1f6bcb3eda750ae.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/contacts-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/contacts-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/contacts.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/contacts.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/navigation/nav-menu/nav-menu.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/navigation/nav-menu/nav-menu.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,12 +31,28 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/EDCOperations/ClientApp/src/app/modules/contacts/prospects" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="D:\virtualmachines\synced_folder\dev-projects\edc\frontend\EDCOperations\ClientApp\node_modules\typescript\lib" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\virtualmachines\synced_folder\dev-projects\edc\frontend\EDCOperations\ClientApp\src\app\modules\contacts\prospects" />
+      <recent name="D:\virtualmachines\synced_folder\dev-projects\edc\frontend\EDCOperations\ClientApp\src\app\modules\contacts\services" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="prospects.component.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/frontend/EDCOperations/ClientApp/src/app/modules/contacts/prospects/prospects.component.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.prospects.component.html" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -40,7 +66,9 @@
       <updated>1624258936914</updated>
       <workItem from="1624258938139" duration="8669000" />
       <workItem from="1624599174642" duration="25000" />
-      <workItem from="1625666791296" duration="1617000" />
+      <workItem from="1625666791296" duration="2853000" />
+      <workItem from="1626186586335" duration="1824000" />
+      <workItem from="1626237619604" duration="17817000" />
     </task>
     <servers />
   </component>
