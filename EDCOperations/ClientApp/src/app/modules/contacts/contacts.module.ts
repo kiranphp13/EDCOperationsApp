@@ -15,6 +15,7 @@ import {ContactsRoutingModule} from './contacts-routing.module';
 import {ProspectsComponent} from './prospects/prospects.component';
 import {ButtonRendererComponent as ProspectsButtonRendererComponent} from './prospects/renderer/button-renderer.component';
 import {AddEditComponent as ProspectAddEditComponent} from './prospects/add-edit.component';
+import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {AddEditComponent as ProspectAddEditComponent} from './prospects/add-edit
     SharedModule,
     ModalModule,
     FlexLayoutModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    AutocompleteLibModule
   ]
 })
 export class ContactsModule {

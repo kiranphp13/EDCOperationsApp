@@ -29,7 +29,7 @@ export class ProspectService {
   }
 
   getAgenciesList() {
-    return this.http.get(baseUrl + '/agency');
+    return this.http.get(baseUrl + '/agencies-list');
   }
 
   getStatesList() {
@@ -38,6 +38,10 @@ export class ProspectService {
 
   getContactTypesList() {
     return this.http.get(baseUrl + '/contacttype');
+  }
+
+  getContactCategoriesList() {
+    return this.http.get(baseUrl + '/contactcategory');
   }
 
 

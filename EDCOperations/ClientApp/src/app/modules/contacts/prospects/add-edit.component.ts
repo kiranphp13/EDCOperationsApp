@@ -6,6 +6,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.js';
 import {first} from 'rxjs/operators';
 import { ProspectService } from '../services/prospect.service';
 import { UserService } from 'src/app/shared/user.service';
+import {forkJoin} from "rxjs";
 @Component({
   selector: 'app-add-edit',
   templateUrl: './add-edit.component.html',
@@ -23,6 +24,7 @@ export class AddEditComponent implements OnInit {
   statesList: any;
   contactTypesList: any;
   isDropDownDataLoaded = false;
+  contactCategoriesList: any;
 
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
@@ -49,19 +51,20 @@ export class AddEditComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       middleName: [''],
-      title: ['', Validators.required],
-      profession: ['', Validators.required],
-      company: ['', Validators.required],
+      title: [''],
+      //profession: ['', Validators.required],
+      company: [''],
       address1: ['', Validators.required],
       address2: [''],
       email: ['', Validators.required],
       phone1: ['', Validators.required],
-      phone2: ['', Validators.required],
+      phone2: [''],
       city: ['', Validators.required],
       stateName: ['', Validators.required],
       zip: ['', Validators.required],
       country: ['', Validators.required],
-      activeStatus: ['']
+      activeStatus: [''],
+      contactCategory: ['', Validators.required],
     });
 
     if (!this.isAddMode) {
@@ -76,7 +79,9 @@ export class AddEditComponent implements OnInit {
             firstName: data['first'],
             lastName: data['last'],
             middleName: data['middle'],
-            stateName: data['state']
+            stateName: data['state'],
+            contactCategory: data['contactCategoryId'],
+
             //template_name:  res.data.template_name,
           });
         });
@@ -113,7 +118,7 @@ export class AddEditComponent implements OnInit {
       first: this.form.get('firstName').value,
       last: this.form.get('lastName').value,
       middle: this.form.get('middleName').value,
-      profession: this.form.get('profession').value,
+      title: this.form.get('title').value,
       company: this.form.get('company').value,
       address1: this.form.get('address1').value,
       address2: this.form.get('address2').value,
@@ -128,6 +133,7 @@ export class AddEditComponent implements OnInit {
       updatedByUserId: this.currentUser.id,
       agencyId: Number(this.form.get('agency').value),
       contactTypeId: Number(this.form.get('contact_type').value),
+      ContactCategoryId: Number(this.form.get('contactCategory').value),
     };
 
     this.prospectService.create(body)
@@ -193,7 +199,7 @@ export class AddEditComponent implements OnInit {
   }
 
 
-  getDropdownData() {
+  getDropdownData1() {
     this.prospectService.getAgenciesList()
       .subscribe(adata => {
         this.agenciesList = adata;
@@ -212,5 +218,53 @@ export class AddEditComponent implements OnInit {
               });
           });
       });
+  }
+
+  getDropdownData(){
+    const req1 = this.prospectService.getStatesList(); // first observable
+    const req2 = this.prospectService.getContactTypesList(); // second observable
+    const req3 = this.prospectService.getAgenciesList(); // third observable
+    const req4 = this.prospectService.getContactCategoriesList(); // fourth observable
+
+
+
+    // @ts-ignore
+    forkJoin(req1, req2, req3, req4).subscribe(([response1, response2, response3, response4]) => {
+      this.statesList = response1;
+      this.contactTypesList = response2;
+      this.agenciesList = response3;
+      this.contactCategoriesList = response4;
+
+      this.isDropDownDataLoaded = true;
+      this.buildForm();
+
+      this.spinnerService.hide();
+    });
+  }
+
+  keyword = 'name';
+  data = [
+    {
+      id: 1,
+      name: 'Usa'
+    },
+    {
+      id: 2,
+      name: 'England'
+    }
+  ];
+
+
+  selectEvent(item) {
+    // do something with selected item
+  }
+
+  onChangeSearch(val: string) {
+    // fetch remote data from here
+    // And reassign the 'data' which is binded to 'data' property.
+  }
+
+  onFocused(e){
+    // do something when input is focused
   }
 }

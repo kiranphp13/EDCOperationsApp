@@ -4,8 +4,11 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-<!--      {{f1() | json}}-->
+
       <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="isDropDownDataLoaded">
+        {{f1() | json}}
+        {{form.status}}
+        {{form.errors | json}}
         <div class="card">
           <div class="card-header font-weight-bold"><span *ngIf="isAddMode">Add Prospect</span>
             <span *ngIf="!isAddMode">Edit Prospect</span></div>
@@ -14,16 +17,49 @@
               <div class="form-group col">
                 <label>Agency<span style="color:red">*</span> :</label>
                 <select formControlName="agency" class="form-control">
-<!--                  <option>Choose Agency</option>-->
                   <option *ngFor="let agency of agenciesList" value="{{agency?.id}}">{{agency?.name}}</option>
                 </select>
+                <div *ngIf="submitted && f.agency.errors" class="invalid-feedback">
+                  <div *ngIf="f.agency.errors.required">Agency is required</div>
+                  </div>
               </div>
+                  <!--              <div class="form-group col">-->
+<!--                <label>Agency<span style="color:red">*</span> :</label>-->
+<!--              <div class="ng-autocomplete">-->
+<!--                <ng-autocomplete-->
+<!--                  [data]="agenciesList"-->
+<!--                  [searchKeyword]="keyword"-->
+<!--                  (selected)='selectEvent($event)'-->
+<!--                  (inputChanged)='onChangeSearch($event)'-->
+<!--                  (inputFocused)='onFocused($event)'-->
+<!--                  [itemTemplate]="itemTemplate"-->
+<!--                  [notFoundTemplate]="notFoundTemplate"-->
+<!--                  [itemTemplate]="itemTemplate"-->
+<!--                  [notFoundTemplate]="notFoundTemplate"-->
+<!--                  formControlName="agency"-->
+<!--                >-->
+<!--                </ng-autocomplete>-->
+
+<!--                <ng-template #itemTemplate let-item>-->
+<!--                  <a [innerHTML]="item.name"></a>-->
+<!--                </ng-template>-->
+
+<!--                <ng-template #notFoundTemplate let-notFound>-->
+<!--                  <div [innerHTML]="notFound"></div>-->
+<!--                </ng-template>-->
+
+<!--              </div>-->
+
+<!--                <div *ngIf="submitted && f.agency.errors" class="invalid-feedback">-->
+<!--                  <div *ngIf="f.agency.errors.required">Agency is required</div>-->
+<!--                </div>-->
+<!--              </div>-->
 
               <div class="form-group col">
-                <label>Contact Type<span style="color:red">*</span> :</label>
-                <select formControlName="contact_type" class="form-control">
+                <label>Contact Category<span style="color:red">*</span> :</label>
+                <select formControlName="contactCategory" class="form-control">
 <!--                  <option>Choose Contact Type</option>-->
-                  <option *ngFor="let contactType of contactTypesList" value="{{contactType?.id}}">{{contactType?.type}}</option>
+                  <option *ngFor="let ccat of contactCategoriesList" value="{{ccat?.id}}">{{ccat?.name}}</option>
                 </select>
               </div>
 
@@ -73,26 +109,38 @@
 
               <div class="form-row">
               <div class="form-group col">
-                <label>Title<span style="color:red">*</span> :</label>
+                <label>Title<span style="color:red"></span> :</label>
                 <input type="text" maxlength="25" formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }"/>
                 <small class="text-muted text-small"> </small>
                 <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
                   <div *ngIf="f.title.errors.required">Title is required</div>
                 </div>
               </div>
-              <div class="form-group col">
-                <label>Profession<span style="color:red">*</span> :</label>
-                <input type="text" maxlength="25" formControlName="profession" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.profession.errors }"/>
-                <small class="text-muted text-small"> </small>
-                <div *ngIf="submitted && f.profession.errors" class="invalid-feedback">
-                  <div *ngIf="f.profession.errors.required">Profession is required</div>
+<!--              <div class="form-group col">-->
+<!--                <label>Profession<span style="color:red">*</span> :</label>-->
+<!--                <input type="text" maxlength="25" formControlName="profession" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.profession.errors }"/>-->
+<!--                <small class="text-muted text-small"> </small>-->
+<!--                <div *ngIf="submitted && f.profession.errors" class="invalid-feedback">-->
+<!--                  <div *ngIf="f.profession.errors.required">Profession is required</div>-->
+<!--                </div>-->
+<!--              </div>-->
+
+                <div class="form-group col">
+                  <label>Profession<span style="color:red">*</span> :</label>
+                  <select formControlName="contact_type" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.contact_type.errors }">
+                    <option *ngFor="let cctype of contactTypesList" value="{{cctype?.id}}">{{cctype?.type}}</option>
+                  </select>
+                  <div *ngIf="submitted && f.contact_type.errors" class="invalid-feedback">
+                    <div *ngIf="f.contact_type.errors.required">Profession is required</div>
+                  </div>
+
+
                 </div>
-              </div>
             </div>
 
             <div class="form-row">
               <div class="form-group col">
-                <label>Company<span style="color:red">*</span> :</label>
+                <label>Company<span style="color:red"></span> :</label>
                 <input type="text" maxlength="50" formControlName="company" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.company.errors }"/>
                 <small class="text-muted text-small"> </small>
                 <div *ngIf="submitted && f.company.errors" class="invalid-feedback">
@@ -155,7 +203,7 @@
                 </div>
               </div>
               <div class="form-group col">
-                <label>State</label>
+                <label>State<span style="color:red">*</span> :</label>
 
                 <select formControlName="stateName" class="form-control">
 <!--                  <option>Choose State</option>-->
@@ -170,7 +218,7 @@
 
             <div class="form-row">
               <div class="form-group col">
-                <label>Zip</label>
+                <label>Zip<span style="color:red">*</span> :</label>
                 <input type="text" maxlength="12" formControlName="zip" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }"/>
                 <small class="text-muted text-small"></small>
                 <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
@@ -178,7 +226,7 @@
                 </div>
               </div>
               <div class="form-group col">
-                <label>Country</label>
+                <label>Country<span style="color:red">*</span> :</label>
                 <input type="text" maxlength="30" formControlName="country" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.country.errors }"/>
                 <small class="text-muted text-small"></small>
                 <div *ngIf="submitted && f.country.errors" class="invalid-feedback">

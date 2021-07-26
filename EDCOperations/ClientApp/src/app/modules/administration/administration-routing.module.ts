@@ -33,6 +33,8 @@ import {AddEditComponent as SourceAddEditComponent} from './source/add-edit.comp
 import {ContactCategoryComponent} from './contact-category/contact-category.component';
 import {AddEditComponent as ContactCategoryAddEditComponent} from './contact-category/add-edit.component';
 
+import {AgenciesComponent} from './agencies/agencies.component';
+import {AddEditComponent as AgencyAddEditComponent} from './agencies/add-edit.component';
 
 const routes: Routes = [
   {
@@ -222,6 +224,30 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {
       roles: ['Admin']
+    }
+  },
+  {
+    path: 'administration/agencies',
+    component: AgenciesComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['Admin', 'Editor', 'Reader']
+    }
+  },
+  {
+    path: 'administration/agencies/add',
+    component: AgencyAddEditComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['Admin','Editor']
+    }
+  },
+  {
+    path: 'administration/agencies/edit/:id',
+    component: AgencyAddEditComponent,
+    canActivate: [AuthGuard],
+    data: {
+      roles: ['Admin','Editor']
     }
   },
 ];
