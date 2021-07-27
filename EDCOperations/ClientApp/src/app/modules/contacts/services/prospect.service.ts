@@ -21,7 +21,7 @@ export class ProspectService {
   }
 
   update(id: string, params: any) {
-    return this.http.put(baseUrl + '/contactcategory/' + id, params);
+    return this.http.put(baseUrl + '/prospect/' + id, params);
   }
 
   delete(id: string) {

@@ -16,7 +16,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'prospects',
+    path: 'contacts/prospects',
     component: ProspectsComponent,
     canActivate: [AuthGuard],
     data: {
@@ -24,7 +24,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'prospects/add',
+    path: 'contacts/prospects/add',
     component: ProspectAddEditComponent,
     canActivate: [AuthGuard],
     data: {
@@ -32,7 +32,7 @@ const routes: Routes = [
     }
   },
   {
-    path: 'prospects/edit/:id',
+    path: 'contacts/prospects/edit/:id',
     component: ProspectAddEditComponent,
     canActivate: [AuthGuard],
     data: {

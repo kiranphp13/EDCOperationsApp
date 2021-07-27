@@ -108,8 +108,8 @@ export class AddEditComponent implements OnInit {
       this.createRecord();
     } else {
       this.loading = false;
-      alert("Under development");
-      //this.updateRecord();
+
+      this.updateRecord();
     }
   }
   private createRecord() {
@@ -150,7 +150,7 @@ export class AddEditComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500
           });
-          this.router.navigate(['/prospects']);
+          this.router.navigate(['/contacts/prospects']);
         } else {
           Swal.fire({
             icon: 'error',
@@ -165,9 +165,26 @@ export class AddEditComponent implements OnInit {
   private updateRecord() {
     if (this.form.dirty) {
       const body = {
-        name: this.form.get('name').value,
-        description: this.form.get('description').value,
-        updatedByUserId: this.currentUser.id
+        salute: this.form.get('salute').value,
+        first: this.form.get('firstName').value,
+        last: this.form.get('lastName').value,
+        middle: this.form.get('middleName').value,
+        title: this.form.get('title').value,
+        company: this.form.get('company').value,
+        address1: this.form.get('address1').value,
+        address2: this.form.get('address2').value,
+        email: this.form.get('email').value,
+        phone1: this.form.get('phone1').value,
+        phone2: this.form.get('phone2').value,
+        city: this.form.get('city').value,
+        state: this.form.get('stateName').value,
+        zip: this.form.get('zip').value,
+        country: this.form.get('country').value,
+        activeStatus: this.form.get('activeStatus').value === true ? '1' : '0',
+        updatedByUserId: this.currentUser.id,
+        agencyId: Number(this.form.get('agency').value),
+        contactTypeId: Number(this.form.get('contact_type').value),
+        ContactCategoryId: Number(this.form.get('contactCategory').value),
       };
 
       this.prospectService.update(this.id, body)
@@ -184,7 +201,7 @@ export class AddEditComponent implements OnInit {
               showConfirmButton: false,
               timer: 1500
             });
-            this.router.navigate(['/administration/contact-category']);
+            this.router.navigate(['/contacts/prospects']);
           } else {
             Swal.fire({
               icon: 'error',
@@ -194,7 +211,7 @@ export class AddEditComponent implements OnInit {
         })
         .add(() => this.loading = false);
     } else {
-      this.router.navigate(['/administration/contact-category']);
+      this.router.navigate(['/contacts/prospects']);
     }
   }
 

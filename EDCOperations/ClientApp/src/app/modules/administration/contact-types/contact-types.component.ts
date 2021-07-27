@@ -48,7 +48,8 @@ export class ContactTypesComponent implements OnInit {
         field: 'id',
         headerName: '#',
         width: 50,
-        filter:true
+        filter:true,
+        sort: 'asc'
       },
       {
         field: 'type',

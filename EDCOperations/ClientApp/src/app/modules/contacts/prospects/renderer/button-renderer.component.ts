@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-button-renderer',
   template: `
-  <a *ngIf="loggedUserRole==='Admin'" class="mr-2" [routerLink]="['/prospects/edit', _id]">Edit</a>
+  <a *ngIf="loggedUserRole==='Admin'" class="mr-2" [routerLink]="['/contacts/prospects/edit', _id]">Edit</a>
 
   <a href="javascript: void(0);" class="" (click)="vRecord()">View</a>
   `,

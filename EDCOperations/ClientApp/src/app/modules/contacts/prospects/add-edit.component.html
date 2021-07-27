@@ -6,9 +6,9 @@
     <div class="col-md-12">
 
       <form [formGroup]="form" (ngSubmit)="onSubmit()" *ngIf="isDropDownDataLoaded">
-        {{f1() | json}}
-        {{form.status}}
-        {{form.errors | json}}
+<!--        {{f1() | json}}-->
+<!--        {{form.status}}-->
+<!--        {{form.errors | json}}-->
         <div class="card">
           <div class="card-header font-weight-bold"><span *ngIf="isAddMode">Add Prospect</span>
             <span *ngIf="!isAddMode">Edit Prospect</span></div>
@@ -240,7 +240,7 @@
               <span *ngIf="loading" class="spinner-border spinner-border-sm"></span>
               Save
             </button>
-            <a routerLink="/prospects" class="btn btn-sm btn-danger">Cancel</a>
+            <a routerLink="/contacts/prospects" class="btn btn-sm btn-danger">Cancel</a>
           </div>
         </div>
       </form>

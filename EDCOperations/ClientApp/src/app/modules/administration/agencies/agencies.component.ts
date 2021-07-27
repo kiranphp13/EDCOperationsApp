@@ -63,7 +63,7 @@ export class AgenciesComponent implements OnInit {
       },
       {
         field: 'description',
-        headerName: 'Description',
+        headerName: 'LIC USERNAME',
         filter:true
       },
       {
@@ -158,7 +158,7 @@ export class AgenciesComponent implements OnInit {
 
   onBtCSVExport() {
     const params = {
-      columnKeys: ['id', 'type', 'description', 'updatedBy', 'updatedAt'],
+      columnKeys: ['id', 'type', 'LIC USERNAME', 'updatedBy', 'updatedAt'],
       fileName: 'Agencies'
     };
     this.gridApi.exportDataAsCsv(params);

@@ -32,8 +32,8 @@ export class ContactCategoryComponent implements OnInit {
     private modalService: NgbModal,
     private datePipe: DatePipe,
     private spinnerService: NgxSpinnerService,
-    private userService: UserService) 
-    { 
+    private userService: UserService)
+    {
       this.userService.currentUser.subscribe(x => this.currentUser = x);
     this.loggedUserRole = this.currentUser.role;
     this.context = {componentParent: this};
@@ -46,7 +46,8 @@ export class ContactCategoryComponent implements OnInit {
         field: 'id',
         headerName: '#',
         width: 50,
-        filter: true
+        filter: true,
+        sort: 'asc'
       },
       {
         field: 'name',
@@ -94,7 +95,7 @@ export class ContactCategoryComponent implements OnInit {
       sortable: true,
     };
     }
- 
+
   ngOnInit() {
   }
 
